@@ -1,0 +1,189 @@
+.main-head{
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* Responsive Logo */
+.logo-cal {
+  width: 100%;
+  max-width: 450px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Calendar Container */
+.calendar-container {
+  max-width: 95%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.calendar-header h2 {
+  font-family: 'URW Chancery L, cursive';
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff5733, #ffbd69, #6a11cb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.calendar-header button {
+  font-size: 18px;
+}
+
+/* Weekdays Row */
+#weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #ddd;
+  padding: 10px 0;
+}
+
+.weekday {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Calendar Grid */
+#calendarDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  font-size: 24px;
+  padding: 10px 0;
+}
+
+.calendar-day {
+  background: #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Highlight Today */
+.calendar-day.today {
+  background: #ffcc00;
+  font-weight: bold;
+}
+
+/* Empty Cells */
+.calendar-day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+/* Festival Days */
+.festival {
+  background: #dfd32d; /* Yellow */
+  color: white;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 30px; /* Space for the image */
+}
+
+/* Festival Images */
+.festival-img {
+  width: 50px;
+  height: 40px;
+  display: block;
+  margin: 5px auto;
+  border-radius: 5px;
+}
+
+/* Festival Name */
+.festival-name {
+  display: block;
+  font-size: 12px;
+  margin-top: 3px;
+  color: rgb(2, 4, 124);
+}
+
+/* Bootstrap Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-size: 18px;
+  padding: 5px 15px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* 🎯 Responsive Adjustments */
+@media (max-width: 992px) {
+  .calendar-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .main-head{
+    font-size: 25px;
+  }
+  .calendar-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .calendar-header h2 {
+    font-size: 30px;
+  }
+
+  #weekdays, #calendarDays {
+    font-size: 14px;
+    gap: 2px;
+  }
+
+  #weekdays {
+    margin: 0px -15px;
+  }
+
+  .calendar-day {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  .festival-img {
+    width: 35px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-header h2 {
+    font-size: 24px;
+  }
+
+  .calendar-day {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .festival-name {
+    font-size: 10px;
+  }
+
+  .festival-img {
+    width: 30px;
+    height: 20px;
+  }
+}
