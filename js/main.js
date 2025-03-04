@@ -313,27 +313,27 @@ document.getElementById("feeForm").addEventListener("submit", function(event) {
 // backend server.js file script start
 
 document.addEventListener("DOMContentLoaded", function () {
-	document.querySelectorAll(".form-submit").forEach(form => {
-			form.addEventListener("submit", async function (e) {
-					e.preventDefault();
+  document.querySelectorAll(".form-submit").forEach(form => {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-					const formData = {
-							name: this.querySelector("[name='name']").value,
-							email: this.querySelector("[name='email']").value,
-							subject: this.querySelector("[name='subject']").value,
-							message: this.querySelector("[name='message']").value
-					};
+      const formData = {
+        name: this.querySelector("[name='name']").value,
+        email: this.querySelector("[name='email']").value,
+        phone: this.querySelector("[name='phone']").value,
+        message: this.querySelector("[name='message']").value
+      };
 
-					const response = await fetch("/send-email", {
-							method: "POST",
-							headers: { "Content-Type": "application/json" },
-							body: JSON.stringify(formData)
-					});
+      const response = await fetch("/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
 
-					const result = await response.json();
-					alert(result.message);
-			});
-	});
+      const result = await response.json();
+      alert(result.message);
+    });
+  });
 });
 
 // backend server.js file script end

@@ -28,31 +28,26 @@ async function submitDetails() {
   const name = document.getElementById("custom-name").value;
   const email = document.getElementById("custom-email").value;
   const phone = document.getElementById("custom-phone").value;
-  const pageURL = window.location.href; // Capture the current page URL
 
   if (!name || !email || !phone) {
-      alert("Please fill in all fields.");
-      return;
+    alert("Please fill in all fields.");
+    return;
   }
 
-  const formData = { name, email, phone, pageURL };
+  const formData = { name, email, phone, message: '' };
 
   try {
-      const response = await fetch("/send-email", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
-      });
-
-      const result = await response.json();
-      alert(result.message);
-
-      // Optionally, hide the popup after submission
-      document.getElementById("custom-details-popup").style.display = "none";
-
+    const response = await fetch("http://localhost:3000/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData)
+    });
+    const result = await response.json();
+    alert(result.message);
+    document.getElementById("custom-details-popup").style.display = "none";
   } catch (error) {
-      console.error("Error sending email:", error);
-      alert("An error occurred. Please try again.");
+    console.error("Error sending email:", error);
+    alert("An error occurred. Please try again.");
   }
 }
 
