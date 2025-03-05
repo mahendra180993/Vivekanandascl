@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- <link rel="icon" type="image/x-icon" href="/images/favicon.png"> -->
-		<link rel="icon" type="image/x-icon" href="/images/white.png">
+		<link rel="icon" type="image/x-icon" href="/images/vivek_1.png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     
@@ -63,31 +63,31 @@
 	
 							<div id="feePopup" class="popup-fee">
 								<div class="popup-content">
-										<span class="close" onclick="closePopup()">&times;</span>
+										<span class="close" onclick="FeeclosePopup()">&times;</span>
 										<h2>Quick Fee Access</h2>
-										<form id="feeForm">
+										<form id="feeForm" class="form-submit">
 												<label for="name">Name:</label>
-												<input type="text" id="name" required>
+												<input type="text" id="name" name="name" required>
 						
 												<label for="class">Select Class:</label>
-												<select id="class" class="custom-select" required>
+												<select name="course" id="class" class="custom-select" required>
 														<option value="Nursery">Nursery</option>
 														<option value="PP-I">PP-I</option>
 														<option value="PP-II">PP-II</option>
-														<option value="Class 1">Class 1</option>
-														<option value="Class 2">Class 2</option>
-														<option value="Class 3">Class 3</option>
-														<option value="Class 4">Class 4</option>
-														<option value="Class 5">Class 5</option>
-														<option value="Class 6">Class 6</option>
-														<option value="Class 7">Class 7</option>
-														<option value="Class 8">Class 8</option>
-														<option value="Class 9">Class 9</option>
-														<option value="Class 10">Class 10</option>
+														<option value="GRADE 1">GRADE 1</option>
+														<option value="GRADE 2">GRADE 2</option>
+														<option value="GRADE 3">GRADE 3</option>
+														<option value="GRADE 4">GRADE 4</option>
+														<option value="GRADE 5">GRADE 5</option>
+														<option value="GRADE 6">GRADE 6</option>
+														<option value="GRADE 7">GRADE 7</option>
+														<option value="GRADE 8">GRADE 8</option>
+														<option value="GRADE 9">GRADE 9</option>
+														<option value="GRADE 10">GRADE 10</option>
 												</select>
 						
 												<label for="contact">Contact No:</label>
-												<input type="text" id="contact" required>
+												<input type="text" name="phone" id="contact" required>
 						
 												<button type="submit" class="custom-submit">Submit</button>
 										</form>
@@ -102,7 +102,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
 			<div class="container d-flex align-items-center">
 				<a class="navbar-brand" href="index.html">
-					<img src="/images/silver.png" alt="Vivekananda Global High School" class="logo" />
+					<img src="/images/vivek_2.png" alt="Vivekananda Global High School" class="logo" />
 				</a>
 				<!-- <a class="navbar-brand" href="index.html">
 					<img src="./images/black_yellow.png" alt="Vivekananda Global High School" style="width: full; height: 40px;" />
@@ -265,7 +265,7 @@
         <div class="row mb-5">
           <div class="col-md-6 col-lg-5 mb-4">
             <div class="ftco-footer-widget ">
-            	<img src="images/white.png" class="footer-logo"/>
+            	<img src="images/vivek_1.png" class="footer-logo"/>
               <blockquote>
                 "At Vivekananda Global High School, we redefine learning with a fresh perspective—modern facilities, 
                 innovative teaching, and a vibrant environment. Our mission is to inspire and empower students 
@@ -317,8 +317,7 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-<script src="js/jquery.min.js"></script>
+  <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

@@ -260,11 +260,7 @@
 	$('.appointment_time').timepicker();
 
 
-
-
 })(jQuery);
-
-
 
 
 
@@ -278,33 +274,25 @@ function FeeclosePopup() {
 	document.getElementById("feePopup").style.display = "none";
 }
 
-document.getElementById("feeForm").addEventListener("submit", function(event) {
-	event.preventDefault(); // Prevent page reload
+document.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("feeForm").addEventListener("submit", function(event) {
+			event.preventDefault();
 
-	// Fetch Form Data
-	var name = document.getElementById("name").value;
-	var selectedClass = document.getElementById("class").value;
-	var contact = document.getElementById("contact").value;
+			var pdfUrl = "/images/dummy.pdf"; // Ensure correct path
+			
+			var link = document.createElement("a");
+			link.href = pdfUrl;
+			link.download = "Fee_StructureFor_2024-25.pdf";
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
 
-	// PDF Download (from Local Storage)
-	var pdfUrl = "/images/2024-25-Fee-Structure-vivekananda.pdf"; // Update with correct file path
+			alert("Form submitted successfully! The PDF has been downloaded.");
+			
+			window.open(pdfUrl, "_blank");
 
-	// Create and trigger download
-	var link = document.createElement("a");
-	link.href = pdfUrl;
-	link.download = "Fee_StructureFor_2024-25.pdf"; // File name when downloaded
-	document.body.appendChild(link);
-	link.click();
-	document.body.removeChild(link);
-
-	alert("Form submitted successfully! The PDF has been downloaded.");
-
-	closePopup();
-
-	// Open the PDF in a new tab after a slight delay
-	setTimeout(() => {
-			window.open(pdfUrl, "_blank"); // Use pdfUrl, not undefined pdfPath
-	}, 500); // Small delay to ensure download starts first
+			FeeclosePopup(); // Close popup after submission
+	});
 });
 
 // Close the popup when clicking outside the popup
