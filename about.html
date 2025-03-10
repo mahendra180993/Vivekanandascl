@@ -27,7 +27,25 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
+
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="js/mails.js"></script>
+		<style>
+			.section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 5px solid #007bff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+	</style>
+</head>
   <body>
 	  <div class="py-2 bg-primary">
 			<div class="container">
@@ -54,34 +72,34 @@
 	
 							<div id="feePopup" class="popup-fee">
 								<div class="popup-content">
-										<span class="close" onclick="closePopup()">&times;</span>
-										<h2>Quick Fee Access</h2>
-										<form id="feeForm">
-												<label for="name">Name:</label>
-												<input type="text" id="name" required>
-						
-												<label for="class">Select Class:</label>
-												<select id="class" class="custom-select" required>
-														<option value="Nursery">Nursery</option>
-														<option value="PP-I">PP-I</option>
-														<option value="PP-II">PP-II</option>
-														<option value="Class 1">Class 1</option>
-														<option value="Class 2">Class 2</option>
-														<option value="Class 3">Class 3</option>
-														<option value="Class 4">Class 4</option>
-														<option value="Class 5">Class 5</option>
-														<option value="Class 6">Class 6</option>
-														<option value="Class 7">Class 7</option>
-														<option value="Class 8">Class 8</option>
-														<option value="Class 9">Class 9</option>
-														<option value="Class 10">Class 10</option>
-												</select>
-						
-												<label for="contact">Contact No:</label>
-												<input type="text" id="contact" required>
-						
-												<button type="submit" class="custom-submit">Submit</button>
-										</form>
+									<span class="close" onclick="FeeclosePopup()">&times;</span>
+									<h2>Quick Fee Access</h2>
+									<form id="feeForm" class="form-submit" onsubmit="return sendEmail('service_3ock698', 'template_cfn1ata', 'feeForm')">
+										<label for="name">Name:</label>
+										<input type="text" name="name" required>
+							
+										<label for="class">Select Class:</label>
+										<select name="course" class="custom-select" required>
+											<option value="Nursery">Nursery</option>
+											<option value="PP-I">PP-I</option>
+											<option value="PP-II">PP-II</option>
+											<option value="GRADE 1">GRADE 1</option>
+											<option value="GRADE 2">GRADE 2</option>
+											<option value="GRADE 3">GRADE 3</option>
+											<option value="GRADE 4">GRADE 4</option>
+											<option value="GRADE 5">GRADE 5</option>
+											<option value="GRADE 6">GRADE 6</option>
+											<option value="GRADE 7">GRADE 7</option>
+											<option value="GRADE 8">GRADE 8</option>
+											<option value="GRADE 9">GRADE 9</option>
+											<option value="GRADE 10">GRADE 10</option>
+										</select>
+							
+										<label for="contact">Contact No:</label>
+										<input type="text" name="phone" required>
+							
+										<button type="submit" class="custom-submit">Submit</button>
+									</form>
 								</div>
 							</div>
 							 <!-- Quick fee popup end -->
@@ -117,7 +135,7 @@
               </li>
 					
 							<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Scl Academics</a>
+									<a href="#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 									<div class="dropdown-menu" aria-labelledby="academicsDropdown">
 											<a class="dropdown-item" href="infrastructure.html">Infrastructure</a>
 											<a class="dropdown-item" href="curriculum.html">Curriculum</a>
@@ -153,7 +171,7 @@
       </div>
     </section>
 		
-		<section class="ftco-section ftco-no-pt ftc-no-pb">
+		<!-- <section class="ftco-section ftco-no-pt ftc-no-pb">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
@@ -227,8 +245,72 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 		
+		<section class="ftco-section ftco-no-pt ftc-no-pb">
+			<div class="container mt-5 text-center heading-section ftco-animate">
+				<h2 class="mb-4"><span>Welcome to</span> Vivekananda Global High School</h2>
+        <!-- <h2 class="section-title"> </h2> -->
+        
+        <!-- Row 1: Image Right, Content Left -->
+        <div class="row align-items-center my-5">
+            <div class="col-md-6">
+                <div class="info-box">
+                    <h4>Our Vision</h4>
+                    <p>Empower students with holistic learning to value knowledge and skills, to become confident  physically, intellectually, morally and spiritually in order to create a world in which every child blossoms to be a responsible leader.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <img src="/images/our-vision.png" alt="Vision Image" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2: Image Left, Content Right -->
+        <div class="row align-items-center flex-md-row-reverse my-5">
+            <div class="col-md-6">
+                <div class="info-box">
+                    <h4>Our Mission</h4>
+                    <p>our school prepares students to contribute and succeed in rapidly changing society, thus making the world better and more than just a place. We ensure that our students develop 21st century skills that a sound education provides competencies which essential for success and leadership in the emerging society.  We also lead in generating practical and theoretical knowledge which enables them to be successful and responsible citizensStudents are expected to be aware of their surrounding and worldly affair . They should be aware of rules and regulation and other relevant information</p>
+										
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <img src="/images/our-mission.png" alt="Mission Image" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 3: Image Right, Content Left -->
+        <div class="row align-items-center my-5">
+            <div class="col-md-6">
+                <div class="info-box">
+                    <h4>Our Values</h4>
+                    <p>Students are expected to be aware of their surrounding and worldly affair . They should be aware of rules and regulation and other relevant information </p>
+										<p>Following are core values as every student should inherit</p>
+										<ul>
+											<li>Respect</li>
+											<li>Punctuality</li>
+											<li>Passion</li>
+											<li>Perseverance</li>
+											<li>Team work</li>
+											<li>Problem solving</li>
+											<li>optimism</li>
+											<li>Critical thinking</li>
+										</ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <img src="/images/core-values.png" alt="Values Image" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>    
+    	</div>
+		</section>
+
 		<section class="ftco-section ftco-no-pb">
 			<div class="container">
 				<div class="row justify-content-center mb-5 pb-2">
@@ -441,7 +523,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url(/images/bg_5.jpg);" data-stellar-background-ratio="0.5">
+    <!-- <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url(/images/bg_5.jpg);" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row justify-content-end">
     			<div class="col-md-6 py-5 px-md-5 bg-primary">
@@ -498,10 +580,10 @@
     			</div>
         </div>
     	</div>
-    </section>
+    </section> -->
 
 
-		<section class="ftco-gallery d-none">
+		<!-- <section class="ftco-gallery d-none">
     	<div class="container-wrap">
     		<div class="row no-gutters">
 					<div class="col-md-3 ftco-animate">
@@ -534,7 +616,7 @@
 					</div>
         </div>
     	</div>
-    </section>
+    </section> -->
 
 		
     <footer class="ftco-footer ftco-bg-dark ftco-section">

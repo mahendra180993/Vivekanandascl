@@ -26,8 +26,15 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="js/mails.js"></script>
+</head>
   <body>
+
+    <div id="customMessagePopup" class="message-popup">
+			<p id="popupMessageText"></p>
+		</div>
+    
 	  <div class="py-2 bg-primary">
 			<div class="container">
 				<div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
@@ -53,34 +60,34 @@
 	
 							<div id="feePopup" class="popup-fee">
 								<div class="popup-content">
-										<span class="close" onclick="closePopup()">&times;</span>
-										<h2>Quick Fee Access</h2>
-										<form id="feeForm">
-												<label for="name">Name:</label>
-												<input type="text" id="name" required>
-						
-												<label for="class">Select Class:</label>
-												<select id="class" class="custom-select" required>
-														<option value="Nursery">Nursery</option>
-														<option value="PP-I">PP-I</option>
-														<option value="PP-II">PP-II</option>
-														<option value="Class 1">Class 1</option>
-														<option value="Class 2">Class 2</option>
-														<option value="Class 3">Class 3</option>
-														<option value="Class 4">Class 4</option>
-														<option value="Class 5">Class 5</option>
-														<option value="Class 6">Class 6</option>
-														<option value="Class 7">Class 7</option>
-														<option value="Class 8">Class 8</option>
-														<option value="Class 9">Class 9</option>
-														<option value="Class 10">Class 10</option>
-												</select>
-						
-												<label for="contact">Contact No:</label>
-												<input type="text" id="contact" required>
-						
-												<button type="submit" class="custom-submit">Submit</button>
-										</form>
+									<span class="close" onclick="FeeclosePopup()">&times;</span>
+									<h2>Quick Fee Access</h2>
+									<form id="feeForm" class="form-submit" onsubmit="return sendEmail('service_3ock698', 'template_cfn1ata', 'feeForm')">
+										<label for="name">Name:</label>
+										<input type="text" name="name" required>
+							
+										<label for="class">Select Class:</label>
+										<select name="course" class="custom-select" required>
+											<option value="Nursery">Nursery</option>
+											<option value="PP-I">PP-I</option>
+											<option value="PP-II">PP-II</option>
+											<option value="GRADE 1">GRADE 1</option>
+											<option value="GRADE 2">GRADE 2</option>
+											<option value="GRADE 3">GRADE 3</option>
+											<option value="GRADE 4">GRADE 4</option>
+											<option value="GRADE 5">GRADE 5</option>
+											<option value="GRADE 6">GRADE 6</option>
+											<option value="GRADE 7">GRADE 7</option>
+											<option value="GRADE 8">GRADE 8</option>
+											<option value="GRADE 9">GRADE 9</option>
+											<option value="GRADE 10">GRADE 10</option>
+										</select>
+							
+										<label for="contact">Contact No:</label>
+										<input type="text" name="phone" required>
+							
+										<button type="submit" class="custom-submit">Submit</button>
+									</form>
 								</div>
 							</div>
 							 <!-- Quick fee popup end -->
@@ -114,7 +121,7 @@
               </li>
 					
 							<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Scl Academics</a>
+									<a href="#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 									<div class="dropdown-menu" aria-labelledby="academicsDropdown">
 											<a class="dropdown-item" href="infrastructure.html">Infrastructure</a>
 											<a class="dropdown-item" href="curriculum.html">Curriculum</a>
@@ -150,7 +157,7 @@
       </div>
     </section>
 
-    <section class="ftco-section contact-section">
+    <section class="ftco-section-contect contact-section">
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
           <div class="col-md-3 d-flex">
@@ -181,26 +188,52 @@
       </div>
     </section>
 		
-		<section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+		<section class="ftco-no-pt ftco-no-pb contact-section mb-4">
 			<div class="container">
 				<div class="row d-flex align-items-stretch no-gutters">
 					<div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
-						<form class="form-submit" action="#">
+						<form id="contactForm" class="form-submit" onsubmit="return sendEmail('service_3ock698', 'template_gqyiarm', 'contactForm')">
               <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                <input type="text" name="username" class="form-control" placeholder="Your Name" required>
               </div>
               <div class="form-group">
                 <input type="text" name="email" class="form-control" placeholder="Your Email" required>
               </div>
               <div class="form-group">
-                <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                <select name="course" class="form-control" required>
+                  <option value="">Select Your Course</option>
+                  <option value="Nursury">Nursury</option>
+                  <option value="PP-I">PP-I</option>
+                  <option value="PP-II">PP-II</option>
+                  <option value="GRADE-I">GRADE-I</option>
+                  <option value="GRADE-II">GRADE-II</option>
+                  <option value="GRADE-III">GRADE-III</option>
+                  <option value="GRADE-IV">GRADE-IV</option>
+                  <option value="GRADE-V">GRADE-V</option>
+                  <option value="GRADE-VI">GRADE-VI</option>
+                  <option value="GRADE-VII">GRADE-VII</option>
+                  <option value="GRADE-VIII">GRADE-VIII</option>
+                  <option value="GRADE-XI">GRADE-XI</option>
+                  <option value="GRADE-X">GRADE-X</option>
+                </select>
               </div>
               <div class="form-group">
+                <input type="text" class="form-control" name="phone" placeholder="Phone" required>
+              </div>
+              <!-- <div class="form-group">
                 <textarea name="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
               </div>
               <div class="form-group">
                 <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
+              </div> -->
+              <div class="d-md-flex">
+								<div class="form-group">
+									<textarea name="message" cols="30" rows="2" class="form-control" placeholder="Message" required></textarea>
+								</div>
+								<div class="form-group ml-md-4">
+									<input type="submit" value="Contact Us" class="btn btn-secondary py-3 px-4">
+								</div>
+							</div>
             </form>
 					</div>
 					<div class="col-md-6 d-flex align-items-stretch">

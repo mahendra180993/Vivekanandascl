@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   
-  </head>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="js/mails.js"></script>
+</head>
   <body>
 	  <div class="py-2 bg-primary">
 			<div class="container">
@@ -54,34 +56,34 @@
 	
 							<div id="feePopup" class="popup-fee">
 								<div class="popup-content">
-										<span class="close" onclick="closePopup()">&times;</span>
-										<h2>Quick Fee Access</h2>
-										<form id="feeForm">
-												<label for="name">Name:</label>
-												<input type="text" id="name" required>
-						
-												<label for="class">Select Class:</label>
-												<select id="class" class="custom-select" required>
-														<option value="Nursery">Nursery</option>
-														<option value="PP-I">PP-I</option>
-														<option value="PP-II">PP-II</option>
-														<option value="Class 1">Class 1</option>
-														<option value="Class 2">Class 2</option>
-														<option value="Class 3">Class 3</option>
-														<option value="Class 4">Class 4</option>
-														<option value="Class 5">Class 5</option>
-														<option value="Class 6">Class 6</option>
-														<option value="Class 7">Class 7</option>
-														<option value="Class 8">Class 8</option>
-														<option value="Class 9">Class 9</option>
-														<option value="Class 10">Class 10</option>
-												</select>
-						
-												<label for="contact">Contact No:</label>
-												<input type="text" id="contact" required>
-						
-												<button type="submit" class="custom-submit">Submit</button>
-										</form>
+									<span class="close" onclick="FeeclosePopup()">&times;</span>
+									<h2>Quick Fee Access</h2>
+									<form id="feeForm" class="form-submit" onsubmit="return sendEmail('service_3ock698', 'template_cfn1ata', 'feeForm')">
+										<label for="name">Name:</label>
+										<input type="text" name="name" required>
+							
+										<label for="class">Select Class:</label>
+										<select name="course" class="custom-select" required>
+											<option value="Nursery">Nursery</option>
+											<option value="PP-I">PP-I</option>
+											<option value="PP-II">PP-II</option>
+											<option value="GRADE 1">GRADE 1</option>
+											<option value="GRADE 2">GRADE 2</option>
+											<option value="GRADE 3">GRADE 3</option>
+											<option value="GRADE 4">GRADE 4</option>
+											<option value="GRADE 5">GRADE 5</option>
+											<option value="GRADE 6">GRADE 6</option>
+											<option value="GRADE 7">GRADE 7</option>
+											<option value="GRADE 8">GRADE 8</option>
+											<option value="GRADE 9">GRADE 9</option>
+											<option value="GRADE 10">GRADE 10</option>
+										</select>
+							
+										<label for="contact">Contact No:</label>
+										<input type="text" name="phone" required>
+							
+										<button type="submit" class="custom-submit">Submit</button>
+									</form>
 								</div>
 							</div>
 							 <!-- Quick fee popup end -->
@@ -116,7 +118,7 @@
               </li>
 					
 							<li class="nav-item active dropdown">
-									<a href="#" class="nav-link active dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Scl Academics</a>
+									<a href="#" class="nav-link active dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 									<div class="dropdown-menu" aria-labelledby="academicsDropdown">
 											<a class="dropdown-item" href="infrastructure.html">Infrastructure</a>
 											<a class="dropdown-item" href="curriculum.html">Curriculum</a>

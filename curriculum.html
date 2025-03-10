@@ -26,7 +26,18 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
+  	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="js/mails.js"></script>
+		<style>
+			.custom-list {
+				background-color: #f8f9fa;
+				border-radius: 10px;
+				padding: 15px;
+				margin-bottom: 15px;
+				border: 1px solid #ddd;
+      }
+		</style>
+</head>
   <body>
 	  <div class="py-2 bg-primary">
 			<div class="container">
@@ -53,34 +64,34 @@
 	
 							<div id="feePopup" class="popup-fee">
 								<div class="popup-content">
-										<span class="close" onclick="closePopup()">&times;</span>
-										<h2>Quick Fee Access</h2>
-										<form id="feeForm">
-												<label for="name">Name:</label>
-												<input type="text" id="name" required>
-						
-												<label for="class">Select Class:</label>
-												<select id="class" class="custom-select" required>
-														<option value="Nursery">Nursery</option>
-														<option value="PP-I">PP-I</option>
-														<option value="PP-II">PP-II</option>
-														<option value="Class 1">Class 1</option>
-														<option value="Class 2">Class 2</option>
-														<option value="Class 3">Class 3</option>
-														<option value="Class 4">Class 4</option>
-														<option value="Class 5">Class 5</option>
-														<option value="Class 6">Class 6</option>
-														<option value="Class 7">Class 7</option>
-														<option value="Class 8">Class 8</option>
-														<option value="Class 9">Class 9</option>
-														<option value="Class 10">Class 10</option>
-												</select>
-						
-												<label for="contact">Contact No:</label>
-												<input type="text" id="contact" required>
-						
-												<button type="submit" class="custom-submit">Submit</button>
-										</form>
+									<span class="close" onclick="FeeclosePopup()">&times;</span>
+									<h2>Quick Fee Access</h2>
+									<form id="feeForm" class="form-submit" onsubmit="return sendEmail('service_3ock698', 'template_cfn1ata', 'feeForm')">
+										<label for="name">Name:</label>
+										<input type="text" name="name" required>
+							
+										<label for="class">Select Class:</label>
+										<select name="course" class="custom-select" required>
+											<option value="Nursery">Nursery</option>
+											<option value="PP-I">PP-I</option>
+											<option value="PP-II">PP-II</option>
+											<option value="GRADE 1">GRADE 1</option>
+											<option value="GRADE 2">GRADE 2</option>
+											<option value="GRADE 3">GRADE 3</option>
+											<option value="GRADE 4">GRADE 4</option>
+											<option value="GRADE 5">GRADE 5</option>
+											<option value="GRADE 6">GRADE 6</option>
+											<option value="GRADE 7">GRADE 7</option>
+											<option value="GRADE 8">GRADE 8</option>
+											<option value="GRADE 9">GRADE 9</option>
+											<option value="GRADE 10">GRADE 10</option>
+										</select>
+							
+										<label for="contact">Contact No:</label>
+										<input type="text" name="phone" required>
+							
+										<button type="submit" class="custom-submit">Submit</button>
+									</form>
 								</div>
 							</div>
 							 <!-- Quick fee popup end -->
@@ -116,7 +127,7 @@
               </li>
 					
 							<li class="nav-item active dropdown">
-									<a href="#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Scl Academics</a>
+									<a href="#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 									<div class="dropdown-menu" aria-labelledby="academicsDropdown">
 											<a class="dropdown-item" href="infrastructure.html">Infrastructure</a>
 											<a class="dropdown-item" href="curriculum.html">Curriculum</a>
@@ -153,73 +164,105 @@
     </section>
 		
 		<section class="ftco-section ftco-no-pt ftc-no-pb">
-			<div class="container">
-        <div class="text px-4 ftco-animate mt-4">
-          <h2 class="mb-2 text-center font-weight-bold">Welcome to <span class="text-danger">Vivekananda Global High School</span> </h2>
-          <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word.</p>
-          <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. And if she hasn’t been rewritten, then they are still using her.</p>
-        </div>
-				<div class="row mt-2">
-					<div class="col-md-12 wrap-about py-5 pr-md-4 ftco-animate">
-						<div class="row mt-5">
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-security"></span></div>
-									<div class="text">
-										<h3>Safety First</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-reading"></span></div>
-									<div class="text">
-										<h3>Regular Classes</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-diploma"></span></div>
-									<div class="text">
-										<h3>Certified Teachers</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-education"></span></div>
-									<div class="text">
-										<h3>Sufficient Classrooms</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-jigsaw"></span></div>
-									<div class="text">
-										<h3>Creative Lessons</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-kids"></span></div>
-									<div class="text">
-										<h3>Sports Facilities</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
+			<div class="container mt-4">
+        <div class="row align-items-center my-5">
+            <!-- Left side: Image -->
+            <div class="col-md-6">
+                <img src="/images/scl-img.jpg" class="img-fluid rounded" alt="Image">
+            </div>
+            
+            <!-- Right side: Ordered Lists -->
+            <div class="col-md-6 mb-4">
+								<h5>Foundation stage ( Pre primary Grade 1&2)</h5>
+                <div class="custom-list">
+                    <ul>
+                        <li>Focus on holistic development including physical ,emotional and cognitive growth</li>
+                        <li>Emphasise Foundational literacy and numeracy.</li>
+                        <li>Develop positive learning habits.</li>
+												<li>Promote inclusivity and equity</li>
+                    </ul>
+										<h5>TEACHING METHODS </h5>
+										<ul>
+											<li>use play based and Activity based methods</li>
+											<li>use story driven method</li>
+											<li>Emphasize listening through phonics</li>
+											<li>Theme based learning</li>
+									</ul>
+                </div>
+            </div>
+				</div>
+				<div class="row align-items-center my-5">
+						<!-- Left side: Ordered Lists -->
+            <div class="col-md-6">
+							<h5>Preparatory stage ( grade 3,4&5 )</h5>
+							<div class="custom-list">
+									<p>
+										Focuses on building foundational skills in language ,mathematics, science ,social science along side developing essential skill like critical thinking, collaboration and communication often through activity based learning and discovery methods .
+										The above teaching pedagogy involves the enhancement of 21st century skills viz.,
+										3Ls: Learning Skills, Life Skills & Literacy Skills
+										4Cs: Critical Thinking, Creativity & Innovation, Collaboration, Communication
+										IMT: Information Literacy, Media Literacy, Technology Literacy
+										FLIPS: Flexibility and Adaptability, Leadership and Responsibility, Initiative & Self-Direction, Social and Cross-Cultural Interaction
+									</p>
 							</div>
 						</div>
+					
+						<!-- Right side: Imagex -->
+
+						<div class="col-md-6 mb-4">
+							<img src="/images/scl-img1.jpg" class="img-fluid rounded" alt="Image">
+						</div>
+        </div>
+				<div class="row align-items-center my-5">
+					<!-- Left side: Image -->
+					<div class="col-md-6">
+							<img src="/images/scl-img2.jpg" class="img-fluid rounded" alt="Image">
+					</div>
+					
+					<!-- Right side: Ordered Lists -->
+					<div class="col-md-6 mb-4">
+							<h5>Middle school stage ( 6th to 8th grade)</h5>
+							<div class="custom-list">
+								<p>The Middle school recognizes the link between development and learning ,the experimental inquiry based curriculum focuses on the child as learner .</p>
+								<h6>Competencies</h6>
+									<ul>
+											<li>Experimental learning</li>
+											<li>Interdisciplinary approach</li>
+											<li>Art integrated learning .</li>
+											<li>Activity based and joyful learning</li>
+											<li>Integrating life skills .</li>
+									</ul>
+									
+							</div>
 					</div>
 				</div>
+				<div class="row align-items-center my-5">
+					<!-- Left side: Ordered Lists -->
+					<div class="col-md-6">
+						<h5>Secondary school curriculum ( grade 9&10)</h5>
+						<div class="custom-list">
+								<p>
+									Secondary school curriculum is a structured program of cources ,it helps students  develop a board understanding of subjects like languages ,science ,Math and social science. The curriculum also helps students develop critical and creative thinking skill .
+								</p>
+								<h6>Curriculum approaches</h6>
+								<p><b>Constructivism:</b>Students learn through hands-on experience</p>
+								<p><b>Competency-based: </b>Students learn through teaching and assessment objectives</p>
+								<p><b>Real-life problem solving:</b> Students apply their knowledge and skills to solve real-world problems</p>
+								<p><b>Values-based learning:</b> Students learn through activities that promote values</p>
+								<p><b>Inclusive practices:</b>Students are supported through inclusive practices</p> 
+								<p><b>Environmental education:</b>Students learn about the environment through various disciplines</p>
+								<h5>Co-curricular activities</h5>
+						<p>Co-curricular activities like dance, music, art, and craft can help lay the foundation for lifelong learning.</p>
+						</div>
+					</div>
+				
+					<!-- Right side: Imagex -->
+
+					<div class="col-md-6 mb-4">
+						<img src="/images/scl-img1.jpg" class="img-fluid rounded" alt="Image">
+					</div>
 			</div>
+    	</div>
 		</section>
 		
 

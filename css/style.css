@@ -8137,7 +8137,7 @@ h1, h2, h3, h4, h5,
     left: 0;
     top: 0;
     margin-top: -130px;
-    background: #fda638 !important;
+    background: #999f05 !important;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
     .ftco-navbar-light.scrolled .nav-item.active > a {
@@ -8179,6 +8179,7 @@ h1, h2, h3, h4, h5,
         color: #1eaaf1 !important; }
     .ftco-navbar-light.scrolled.awake {
       margin-top: 0px;
+      padding: 10px;
       -webkit-transition: .3s all ease-out;
       -o-transition: .3s all ease-out;
       transition: .3s all ease-out; }
@@ -10131,4 +10132,33 @@ cite {
   .bg-primary{
     display: none;
   }
+}
+
+.message-popup {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.message-popup.success {
+  background-color: #28a745;
+  color: white;
+}
+
+.message-popup.error {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+.ftco-section-contect {
+  padding: 7em 0 0 0;
+  position: relative;
 }
