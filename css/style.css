@@ -10062,9 +10062,13 @@ cite {
 /* infrastructure images css end */
  
 
-.logo{
-  height: 70px;
+.logo {
   width: 100%;
+  max-width: 300px; /* Set a max width to prevent excessive stretching */
+  height: 70px; /* Fixed height */
+  object-fit: contain; /* Ensures the image scales correctly without distortion */
+  display: block; /* Removes extra spacing issues */
+  margin: 0 auto; /* Centers the logo */
 }
 
 .card-color:hover{

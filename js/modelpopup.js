@@ -6,6 +6,22 @@ document.addEventListener("DOMContentLoaded", function () {
   if (lastActionDate !== today) {
       showPopup();
   }
+
+  // Attach EmailJS submission handler
+  document.getElementById("mainPopupForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent page reload
+
+      emailjs.sendForm("service_3ock698", "template_cfn1ata", this)
+          .then(response => {
+              alert("Email sent successfully!");
+              hidePopups(); // Close popup after submission
+              markActionDone(); // Save that action was taken today
+          })
+          .catch(error => {
+              console.error("EmailJS Error:", error);
+              alert("Failed to send email. Please try again.");
+          });
+  });
 });
 
 function showPopup() {
@@ -23,34 +39,6 @@ function openDetailsPopup() {
   document.getElementById("custom-popup").style.display = "none";
   document.getElementById("custom-details-popup").style.display = "block";
 }
-
-async function submitDetails() {
-  const name = document.getElementById("custom-name").value;
-  const email = document.getElementById("custom-email").value;
-  const phone = document.getElementById("custom-phone").value;
-
-  if (!name || !email || !phone) {
-    alert("Please fill in all fields.");
-    return;
-  }
-
-  const formData = { name, email, phone, message: '' };
-
-  try {
-    const response = await fetch("http://localhost:3000/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData)
-    });
-    const result = await response.json();
-    alert(result.message);
-    document.getElementById("custom-details-popup").style.display = "none";
-  } catch (error) {
-    console.error("Error sending email:", error);
-    alert("An error occurred. Please try again.");
-  }
-}
-
 
 function hidePopups() {
   document.getElementById("custom-overlay").style.display = "none";

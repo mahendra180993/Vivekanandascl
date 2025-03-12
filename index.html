@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Vivekananda Global High School </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,25 +40,25 @@
 		</div>
 
 		<!-- Overlay -->
-			<div class="custom-overlay" id="custom-overlay"></div>
+		<div class="custom-overlay" id="custom-overlay"></div>
 
-			<!-- Initial Popup -->
-			<div class="custom-popup" id="custom-popup">
-					<h2>Are you a new or existing parent?</h2>
-					<button class="custom-btn custom-btn-yes" onclick="closePopup()">OLD</button>
-					<button class="custom-btn custom-btn-no" onclick="openDetailsPopup()">NEW</button>
-			</div>
-
-			<!-- Details Form Popup -->
-			<div class="custom-details-popup" id="custom-details-popup">
+		<!-- Initial Popup -->
+		<div class="custom-popup" id="custom-popup">
+				<h2>Are you a new or existing parent?</h2>
+				<button class="custom-btn custom-btn-yes" onclick="closePopup()">OLD</button>
+				<button class="custom-btn custom-btn-no" onclick="openDetailsPopup()">NEW</button>
+		</div>
+		
+		<!-- Details Form Popup -->
+		<div class="custom-details-popup" id="custom-details-popup">
 				<h2>Enter Your Details</h2>
-				<form id="mainPopupForm" onsubmit="return sendEmail('service_3ock698', 'template_cfn1ata', 'mainPopupForm')">
-					<input type="text" name="name" placeholder="Name" required><br>
-					<input type="email" name="email" placeholder="Email" required><br>
-					<input type="tel" name="phone" placeholder="Phone Number" required><br>
-					<button type="submit" class="custom-btn custom-btn-yes">Submit</button>
+				<form id="mainPopupForm">
+						<input type="text" name="name" placeholder="Name" required><br>
+						<input type="email" name="email" placeholder="Email" required><br>
+						<input type="tel" name="phone" placeholder="Phone Number" required><br>
+						<button type="submit" class="custom-btn custom-btn-yes">Submit</button>
 				</form>
-			</div>
+		</div>
 
 	  <div class="py-2 bg-primary">
     	<div class="container">
@@ -125,13 +126,6 @@
 	    	<a class="navbar-brand" href="index.html">
 					<img src="/images/vivek_2.png" alt="Vivekananda Global High School" class="logo" />
 				</a>
-				<!-- <a class="navbar-brand" href="index.html">
-					<img src="/images/logo_v1.png" alt="Vivekananda Global High School" class="logo" />
-				</a> -->
-				<!-- <a class="navbar-brand" href="index.html">
-					<img src="./images/black_yellow.png" alt="Vivekananda Global High School
-" style="width: full; height: 40px;" />
-				</a> -->
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -143,7 +137,7 @@
                 <a href="#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
                 <div class="dropdown-menu" aria-labelledby="admissionDropdown">
                     <a class="dropdown-item" href="about.html">About Me</a>
-                    <a class="dropdown-item" href="#">Legal Public Announcement</a>
+                    <a class="dropdown-item" href="legalPublicAnnouncement.html">Legal Public Announcement</a>
                 </div>
               </li>
 					
