@@ -40,6 +40,27 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+  @media screen and (max-width: 768px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+}
+
+/* Fix for Safari-Specific Issues */
+@supports (-webkit-touch-callout: none) {
+  .navbar {
+      display: flex;
+      flex-wrap: nowrap;
+  }
+  .logo {
+      width: auto;
+      max-width: 220px;
+  }
+  .navbar-toggler {
+      margin-left: auto;
+  }
+}
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
@@ -51,7 +72,9 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff; 
+  -webkit-overflow-scrolling: touch;
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -3430,33 +3453,23 @@ input[type="button"].btn-block {
 .tab-content > .active {
   display: block; }
 
-.navbar {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem 1rem; }
-  .navbar > .container,
-  .navbar > .container-fluid {
-    display: -webkit-box;
-    display: -ms-flexbox;
+  .navbar {
+    position: relative;
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    flex-wrap: nowrap; /* Prevents wrapping issues */
     align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between; }
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+  /* Ensures proper flexbox behavior inside .container and .container-fluid */
+.navbar > .container,
+.navbar > .container-fluid {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .navbar-brand {
   display: inline-block;
@@ -3476,8 +3489,6 @@ input[type="button"].btn-block {
   }
 }
 .navbar-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3514,11 +3525,14 @@ input[type="button"].btn-block {
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 0.25rem; }
+  border-radius: 0.25rem; 
+}
   .navbar-toggler:hover, .navbar-toggler:focus {
-    text-decoration: none; }
+    text-decoration: none;
+   }
   .navbar-toggler:not(:disabled):not(.disabled) {
-    cursor: pointer; }
+    cursor: pointer; 
+  }
 
 .navbar-toggler-icon {
   display: inline-block;
@@ -3527,7 +3541,8 @@ input[type="button"].btn-block {
   vertical-align: middle;
   content: "";
   background: no-repeat center center;
-  background-size: 100% 100%; }
+  background-size: 100% 100%; 
+}
 
 @media (max-width: 575.98px) {
   .navbar-expand-sm > .container,
@@ -10063,12 +10078,11 @@ cite {
  
 
 .logo {
-  width: 100%;
-  max-width: 300px; /* Set a max width to prevent excessive stretching */
+  width: auto;
+  max-width: 250px; /* Ensures it doesn’t stretch too much */
   height: 70px; /* Fixed height */
-  object-fit: contain; /* Ensures the image scales correctly without distortion */
-  display: block; /* Removes extra spacing issues */
-  margin: 0 auto; /* Centers the logo */
+  object-fit: contain; /* Keeps aspect ratio */
+  display: block;
 }
 
 .card-color:hover{
