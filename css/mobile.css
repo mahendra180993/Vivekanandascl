@@ -1,0 +1,378 @@
+/* Mobile responsive fixes */
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Top contact bar — desktop only */
+@media (max-width: 991.98px) {
+  .site-topbar {
+    display: none !important;
+  }
+}
+
+/* Navbar */
+@media (max-width: 991.98px) {
+  .ftco-navbar-light {
+    padding: 8px 12px !important;
+  }
+
+  .ftco-navbar-light > .container {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .ftco-navbar-light .navbar-brand {
+    flex: 1 1 auto;
+    max-width: calc(100% - 90px);
+    margin-right: 0;
+  }
+
+  .ftco-navbar-light .navbar-brand .logo {
+    max-width: 180px;
+    height: 52px;
+    width: auto;
+  }
+
+  .ftco-navbar-light .navbar-toggler {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .ftco-navbar-light .navbar-collapse {
+    width: 100%;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .ftco-navbar-light .navbar-nav .navbar-nav {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link,
+  .ftco-navbar-light .navbar-nav .navbar-nav > .nav-item > .nav-link {
+    padding-top: 0.65rem !important;
+    padding-bottom: 0.65rem !important;
+  }
+
+  .ftco-navbar-light .dropdown-menu {
+    border: none;
+    box-shadow: none;
+    padding-left: 0.75rem;
+  }
+}
+
+/* Hero / inner banners */
+@media (max-width: 767.98px) {
+  .owl-carousel.home-slider,
+  .owl-carousel.home-slider .slider-item,
+  .owl-carousel.home-slider .slider-item .slider-text {
+    height: 420px;
+  }
+
+  .owl-carousel.home-slider .slider-item .slider-text h1 {
+    font-size: 28px !important;
+    padding: 8px 12px;
+    line-height: 1.25;
+  }
+
+  .owl-carousel.home-slider .slider-item .slider-text .btn {
+    font-size: 14px;
+    padding: 0.6rem 1rem !important;
+  }
+
+  .hero-wrap {
+    min-height: 220px;
+  }
+
+  .hero-wrap.hero-wrap-2 .slider-text .bread {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .owl-carousel.home-slider,
+  .owl-carousel.home-slider .slider-item,
+  .owl-carousel.home-slider .slider-item .slider-text {
+    height: 360px;
+  }
+
+  .owl-carousel.home-slider .slider-item .slider-text h1 {
+    font-size: 22px !important;
+  }
+}
+
+/* Section spacing & headings */
+@media (max-width: 767.98px) {
+  .ftco-section {
+    padding: 3em 0;
+  }
+
+  .ftco-footer {
+    padding: 3em 0;
+  }
+
+  .ftco-intro {
+    padding: 3em 0;
+    text-align: center;
+  }
+
+  .ftco-intro h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .ftco-intro .col-md-3 {
+    margin-top: 1rem;
+    justify-content: center !important;
+  }
+
+  .heading-section h2,
+  .wrap-about h2 {
+    font-size: 1.6rem;
+  }
+
+  .h-color {
+    font-size: 1.5rem;
+  }
+}
+
+/* Services strip */
+@media (max-width: 767.98px) {
+  .ftco-services .services .media-body {
+    padding-bottom: 2em !important;
+  }
+}
+
+/* About / offer blocks */
+@media (max-width: 767.98px) {
+  .wrap-about.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .services-2 {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Courses */
+@media (max-width: 991.98px) {
+  .course.d-lg-flex {
+    flex-direction: column;
+  }
+
+  .course .img {
+    width: 100%;
+    min-height: 200px;
+  }
+
+  .course .text {
+    width: 100% !important;
+  }
+}
+
+/* Testimonials */
+@media (max-width: 767.98px) {
+  .testimony-wrap.d-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimony-wrap .user-img {
+    margin-right: 0 !important;
+    margin-bottom: 1rem;
+  }
+
+  .testimony-wrap .text {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* Contact / enquiry forms */
+@media (max-width: 767.98px) {
+  .appointment-form .d-md-flex {
+    display: block !important;
+  }
+
+  .appointment-form .form-group.ml-md-4 {
+    margin-left: 0 !important;
+    margin-top: 0.75rem;
+  }
+
+  .appointment-form input[type="submit"] {
+    width: 100%;
+  }
+
+  .ftco-consult .col-md-6.bg-primary {
+    padding: 2rem 1.25rem !important;
+  }
+
+  #map,
+  #map iframe {
+    min-height: 280px;
+    height: 280px !important;
+  }
+}
+
+/* Footer */
+@media (max-width: 767.98px) {
+  blockquote {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  cite {
+    margin-left: 0 !important;
+    margin-top: 0.5rem !important;
+    text-align: left;
+  }
+
+  .ftco-footer-widget {
+    margin-bottom: 1.5rem;
+  }
+
+  .ftco-footer-social {
+    float: none !important;
+    text-align: left;
+  }
+}
+
+/* Gallery */
+@media (max-width: 767.98px) {
+  .folder {
+    height: auto !important;
+    max-height: none !important;
+    margin-bottom: 1rem;
+  }
+
+  .folder img {
+    height: 200px;
+  }
+
+  .gallery-overlay img {
+    max-width: 92%;
+    max-height: 70%;
+  }
+
+  .nav-button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .prev {
+    left: 2%;
+  }
+
+  .next {
+    right: 2%;
+  }
+}
+
+/* Infrastructure */
+@media (max-width: 767.98px) {
+  .image-container {
+    height: 180px;
+    margin-bottom: 1rem;
+  }
+
+  .infra-container,
+  .container.infra-container {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Admission */
+@media (max-width: 767.98px) {
+  .admission-list li {
+    width: 100%;
+  }
+
+  .card-color {
+    margin-bottom: 1rem;
+  }
+
+  .table-responsive {
+    font-size: 14px;
+  }
+}
+
+/* Popups */
+@media (max-width: 575.98px) {
+  .popup-fee,
+  .custom-popup,
+  .custom-details-popup {
+    width: 94% !important;
+    max-width: none;
+    padding: 14px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .popup-content {
+    padding: 12px;
+  }
+
+  .message-popup {
+    width: calc(100% - 24px);
+    left: 12px;
+    right: 12px;
+    transform: none;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+/* Calendar */
+@media (max-width: 575.98px) {
+  .main-head {
+    font-size: 1.35rem;
+  }
+
+  #calendarDays,
+  #weekdays {
+    font-size: 11px;
+  }
+
+  .calendar-day {
+    min-height: 52px;
+    padding: 4px 2px;
+  }
+
+  .festival-name {
+    font-size: 9px;
+    line-height: 1.2;
+  }
+}
+
+/* Counter stats */
+@media (max-width: 767.98px) {
+  .ftco-counter .block-18 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Utility: prevent overflow from tables & preformatted content */
+@media (max-width: 991.98px) {
+  .table-responsive {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

@@ -1,45 +1,107 @@
 // Quick Fee Popup Script
 
-function openPopup() {
-	document.getElementById("feePopup").style.display = "flex";
+const FEE_PDF_PATH = "images/Vivekananda_Fee_Structure_Updated.pdf";
+
+function ensureFeePopupElements() {
+  if (!document.getElementById("customMessagePopup")) {
+    const messagePopup = document.createElement("div");
+    messagePopup.id = "customMessagePopup";
+    messagePopup.className = "message-popup";
+    messagePopup.innerHTML = '<p id="popupMessageText"></p>';
+    document.body.appendChild(messagePopup);
+  }
+
+  const feePopup = document.getElementById("feePopup");
+  if (feePopup && feePopup.parentElement !== document.body) {
+    document.body.appendChild(feePopup);
+  }
+}
+
+function openFeePopup(event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  ensureFeePopupElements();
+
+  const popup = document.getElementById("feePopup");
+  if (!popup) return;
+
+  popup.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  popup.dataset.justOpened = "true";
+
+  setTimeout(function () {
+    delete popup.dataset.justOpened;
+  }, 350);
+}
+
+// Keep legacy name used in HTML onclick handlers
+function openPopup(event) {
+  openFeePopup(event);
 }
 
 function FeeclosePopup() {
-	document.getElementById("feePopup").style.display = "none";
+  const popup = document.getElementById("feePopup");
+  if (popup) {
+    popup.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-	document.getElementById("feeForm").addEventListener("submit", function(event) {
-			event.preventDefault();
+function downloadPDF() {
+  const link = document.createElement("a");
+  link.href = FEE_PDF_PATH;
+  link.download = "Fee_Structure_2024-25.pdf";
+  link.target = "_blank";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
-			var pdfUrl = "/images/dummy.pdf"; // Ensure correct path
-			
-			var link = document.createElement("a");
-			link.href = pdfUrl;
-			link.download = "Fee_StructureFor_2024-25.pdf";
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
+function initFeePopup() {
+  ensureFeePopupElements();
 
-			alert("Form submitted successfully! The PDF has been downloaded.");
-			
-			window.open(pdfUrl, "_blank");
+  document.querySelectorAll(".quick-access-btn").forEach(function (button) {
+    button.addEventListener("click", openFeePopup);
+  });
 
-			FeeclosePopup(); // Close popup after submission
-	});
-});
+  const feePopup = document.getElementById("feePopup");
+  if (!feePopup) return;
 
-// Close the popup when clicking outside the popup
+  feePopup.addEventListener("click", function (event) {
+    if (event.target === feePopup && !feePopup.dataset.justOpened) {
+      FeeclosePopup();
+    }
+  });
 
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && feePopup.style.display === "flex") {
+      FeeclosePopup();
+    }
+  });
+}
 
-// email sending code stert
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initFeePopup);
+} else {
+  initFeePopup();
+}
 
-(function () {
-  emailjs.init("L39OLhwvPp9l9mwU1"); // Replace with your actual EmailJS Public Key
-})();
+if (typeof emailjs !== "undefined") {
+  emailjs.init("L39OLhwvPp9l9mwU1");
+}
 
 function sendEmail(serviceID, templateID, formID) {
   const form = document.getElementById(formID);
+  if (!form) return false;
+
+  if (typeof emailjs === "undefined") {
+    showPopupMessage("Email service is not available. Please try again later.", "error");
+    return false;
+  }
+
   const formData = new FormData(form);
   const data = {};
 
@@ -48,35 +110,33 @@ function sendEmail(serviceID, templateID, formID) {
   });
 
   emailjs.send(serviceID, templateID, data)
-    .then(function (response) {
+    .then(function () {
       showPopupMessage("Email sent successfully!", "success");
       form.reset();
       if (formID === "feeForm") {
-        downloadPDF(); // Call function to download PDF
-        FeeclosePopup(); // Close popup after successful email
+        downloadPDF();
+        FeeclosePopup();
       }
     }, function (error) {
       showPopupMessage("Failed to send email. Please try again.", "error");
       console.error("EmailJS Error:", error);
     });
 
-  return false; // Prevent default form submission
+  return false;
 }
 
-// Function to show a custom popup message
 function showPopupMessage(message, type) {
-  let popup = document.getElementById("customMessagePopup");
-  let popupText = document.getElementById("popupMessageText");
+  ensureFeePopupElements();
+
+  const popup = document.getElementById("customMessagePopup");
+  const popupText = document.getElementById("popupMessageText");
+  if (!popup || !popupText) return;
 
   popupText.innerHTML = message;
-  popup.className = "message-popup " + type; // Add class based on type
+  popup.className = "message-popup " + type;
   popup.style.display = "block";
 
-  // Hide popup after 3 seconds
   setTimeout(() => {
     popup.style.display = "none";
   }, 3000);
 }
-
-
-//email send code ended

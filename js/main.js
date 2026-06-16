@@ -93,22 +93,45 @@
 	carousel();
 
 	$('nav .dropdown').hover(function(){
+		if (window.innerWidth < 992) return;
 		var $this = $(this);
-		// 	 timer;
-		// clearTimeout(timer);
 		$this.addClass('show');
 		$this.find('> a').attr('aria-expanded', true);
-		// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
 		$this.find('.dropdown-menu').addClass('show');
 	}, function(){
+		if (window.innerWidth < 992) return;
 		var $this = $(this);
-			// timer;
-		// timer = setTimeout(function(){
-			$this.removeClass('show');
-			$this.find('> a').attr('aria-expanded', false);
-			// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
-			$this.find('.dropdown-menu').removeClass('show');
-		// }, 100);
+		$this.removeClass('show');
+		$this.find('> a').attr('aria-expanded', false);
+		$this.find('.dropdown-menu').removeClass('show');
+	});
+
+	// Close mobile menu after clicking a non-dropdown nav link
+	$('#ftco-nav .nav-link').not('.dropdown-toggle').on('click', function () {
+		if (window.innerWidth < 992) {
+			$('#ftco-nav').collapse('hide');
+		}
+	});
+
+	// Reset dropdowns when mobile menu closes
+	$('#ftco-nav').on('hidden.bs.collapse', function () {
+		$('.navbar-nav .dropdown').removeClass('show').find('.dropdown-menu').removeClass('show');
+	});
+
+	// Mobile: toggle dropdown on tap
+	$('.navbar-nav .dropdown > .dropdown-toggle').on('click', function(e) {
+		if (window.innerWidth < 992) {
+			e.preventDefault();
+			e.stopPropagation();
+			var $parent = $(this).parent();
+			var isOpen = $parent.hasClass('show');
+			$('.navbar-nav .dropdown').removeClass('show').find('.dropdown-menu').removeClass('show');
+			if (!isOpen) {
+				$parent.addClass('show');
+				$parent.find('.dropdown-menu').addClass('show');
+				$(this).attr('aria-expanded', true);
+			}
+		}
 	});
 
 

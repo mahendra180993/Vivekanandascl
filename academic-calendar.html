@@ -6,8 +6,8 @@
     <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<!-- <link rel="icon" type="image/x-icon" href="/images/favicon.png"> -->
-		<link rel="icon" type="image/x-icon" href="/images/vivek_1.png">
+		<!-- <link rel="icon" type="image/x-icon" href="images/favicon.png"> -->
+		<link rel="icon" type="image/x-icon" href="images/vivek_1.png">
     
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
@@ -28,10 +28,11 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="css/calandar.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 		<script src="js/mails.js"></script>
+
+
+    <link rel="stylesheet" href="css/calandar.css">
 </head>
   <body>
 	  <div class="py-2 bg-primary">
@@ -49,10 +50,10 @@
 							</div>
 							<div class="col-md pr-4 d-flex topper align-items-center">
 								<div class="icon bg-tertiary mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-								<span class="text">+91 780103 11 56 , +91 912168 99 73</span>
+								<span class="text">+91 78938 09 156 , +91 912168 99 73</span>
 							</div>
 							<div class="col-md pr-4 d-flex topper align-items-center">
-								<button class="quick-access-btn" onclick="openPopup()">Quick Fee</button>
+								<button type="button" class="quick-access-btn" onclick="openFeePopup(event)">Quick Fee</button>
 							</div>
 	
 							<!-- Quick fee popup start -->
@@ -96,9 +97,9 @@
 			</div>
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
-			<div class="container d-flex align-items-center">
+			<div class="container">
 				<a class="navbar-brand" href="index.html">
-					<img src="/images/vivek_2.png" alt="Vivekananda Global High School" class="logo" />
+					<img src="images/vivek_2.png" alt="Vivekananda Global High School" class="logo" />
 				</a>
 				<!-- <a class="navbar-brand" href="index.html">
 					<img src="./images/black_yellow.png" alt="Vivekananda Global High School
@@ -109,10 +110,9 @@
 				</button>
 				<div class="collapse navbar-collapse" id="ftco-nav">
 					<ul class="navbar-nav ml-auto">
-						<ul class="navbar-nav">
 							<li class="nav-item"><a href="index.html" class="nav-link pl-0">Home</a></li>
 							<li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
+                <a href="academic-calendar.html#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
                 <div class="dropdown-menu" aria-labelledby="admissionDropdown">
                     <a class="dropdown-item" href="about.html">About Me</a>
                     <a class="dropdown-item" href="legalPublicAnnouncement.html">Legal Public Announcement</a>
@@ -120,7 +120,7 @@
               </li>
 					
 							<li class="nav-item active dropdown">
-									<a href="#" class="nav-link active dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
+									<a href="academic-calendar.html#" class="nav-link active dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 									<div class="dropdown-menu" aria-labelledby="academicsDropdown">
 											<a class="dropdown-item" href="infrastructure.html">Infrastructure</a>
 											<a class="dropdown-item" href="curriculum.html">Curriculum</a>
@@ -129,10 +129,10 @@
 							</li>
 					
 							<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admission</a>
+									<a href="academic-calendar.html#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admission</a>
 									<div class="dropdown-menu" aria-labelledby="admissionDropdown">
 											<a class="dropdown-item" href="admission-process.html">Admission Process</a>
-											<a class="dropdown-item" href="online-enquiry.html">Online Enquiry Form</a>
+																						<!-- <a class="dropdown-item" href="online-enquiry.html">Online Enquiry Form</a> -->
 									</div>
 							</li>
 					
@@ -144,7 +144,7 @@
 		</nav>
 		<!-- END nav -->
     
-    <!-- <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');">
+    <!-- <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpeg');">
       <div class="infra-overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -161,7 +161,7 @@
         <div class="d-flex flex-column align-items-center justify-content-center text-center">
           <img src="img/black_yellow.png" class="img-fluid logo-cal" alt="Logo" />
           <p class="mt-2">CBSE Affiliation No.3630354</p>
-          <p>	Gummadidala, Sangareddy dist. Telangana 502313,780103 11 56</p>
+          <p>	Gummadidala, Sangareddy dist. Telangana 502313, +91 78938 09 156</p>
       </div>
       <hr />
           <div class="calendar-header">
@@ -198,7 +198,7 @@
                 innovative teaching, and a vibrant environment. Our mission is to inspire and empower students 
                 to turn their dreams into reality."
               </blockquote>
-              <cite>— Mahendra Reddy</cite>
+              <cite>— Mahipal Reddy</cite>
             </div>
           </div>
           
@@ -206,7 +206,7 @@
             <div class="ftco-footer-widget mb-5 ml-md-4">
               <h2 class="ftco-heading-2">Links</h2>
               <ul class="list-unstyled">
-                <li><a href="/"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+                <li><a href="index.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
                 <li><a href="about.html"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
                 <li><a href="infrastructure.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Infrastructure</a></li>
                 <li><a href="gallery.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Gallery</a></li>
@@ -220,14 +220,14 @@
               <div class="block-23">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Gummadidala, Sangareddy dist. Telangana 502313</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 780103 11 56 , +91 912168 99 73</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">vivekanandacbse@gmail.com</span></a></li>
+	                <li><a href="tel:+917893809156"><span class="icon icon-phone"></span><span class="text">+91 78938 09 156 , +91 912168 99 73</span></a></li>
+	                <li><a href="mailto:vivekanandacbse.com"><span class="icon icon-envelope"></span><span class="text">vivekanandacbse@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate"><a href="academic-calendar.html#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="academic-calendar.html#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="academic-calendar.html#"><span class="icon-instagram"></span></a></li>
               </ul>
             </div>
           </div>
@@ -245,15 +245,15 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-<script>
+<!-- <script>
   let currentImageIndex = 0;
         const images = [
-            "/images/gallery/event1/event-1.jpeg",
-            "/images/gallery/event2/event-2.jpeg",
-            "/images/gallery/event3/event-3.webp",
-            "/images/gallery/event2/event-2.jpeg",
-            "/images/gallery/event3/event-3.webp",
-            "/images/gallery/event1/event-1.jpeg"
+            "images/gallery/event1/event-1.jpeg",
+            "images/gallery/event2/event-2.jpeg",
+            "images/gallery/event3/event-3.webp",
+            "images/gallery/event2/event-2.jpeg",
+            "images/gallery/event3/event-3.webp",
+            "images/gallery/event1/event-1.jpeg"
         ];
 
         function openGallery(index) {
@@ -275,9 +275,10 @@
             }
             document.getElementById("mainImage").src = images[currentImageIndex];
         }
-</script> 
+</script>  -->
 <script src="js/calandar.js"></script>
 <script src="js/jquery.min.js"></script>
+
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

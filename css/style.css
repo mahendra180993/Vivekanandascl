@@ -34,6 +34,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -46,18 +47,17 @@ html {
     }
 }
 
-/* Fix for Safari-Specific Issues */
+/* Safari mobile navbar */
 @supports (-webkit-touch-callout: none) {
-  .navbar {
+  @media (max-width: 991.98px) {
+    #ftco-navbar .container {
       display: flex;
-      flex-wrap: nowrap;
-  }
-  .logo {
-      width: auto;
-      max-width: 220px;
-  }
-  .navbar-toggler {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #ftco-navbar .navbar-toggler {
       margin-left: auto;
+    }
   }
 }
 
@@ -2557,7 +2557,7 @@ input[type="button"].btn-block {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 1000;
+  z-index: 99;
   display: none;
   float: left;
   min-width: 10rem;
@@ -3485,7 +3485,7 @@ input[type="button"].btn-block {
 
 @media (max-width: 768px) { /* Adjust width if needed */
   .navbar-brand img {
-    content: url('/images/vivek_1.png'); /* Change to your mobile logo */
+    content: url('../images/vivek_1.png'); /* Change to your mobile logo */
   }
 }
 .navbar-nav {
@@ -8668,7 +8668,8 @@ h1, h2, h3, h4, h5,
   .staff .img {
     width: 100%;
     display: block;
-    background-position: top center;
+    background-position: center top;
+    background-size: cover;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
@@ -8717,7 +8718,8 @@ h1, h2, h3, h4, h5,
     opacity: 1;
     top: -40px; }
   .staff:hover .img, .staff:focus .img {
-    margin-top: -10px; }
+    margin-top: 0;
+    transform: scale(1.03); }
   .staff:hover .text h3, .staff:focus .text h3 {
     color: #1eaaf1; }
 
@@ -9143,7 +9145,7 @@ textarea.form-control {
 .user-img {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; }
+  background-position: center top; }
 
 .testimony-section {
   position: relative; }
@@ -9730,21 +9732,23 @@ textarea.form-control {
     text-align: center;
     position: relative;
     overflow: hidden;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    padding: 10px;
+    border: none;
+    border-radius: 16px;
+    padding: 12px;
     background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    height: 400px !important;
-    max-height: 320px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto !important;
+    max-height: none !important;
     }
     
     .folder img {
-    height: 250px;
+    height: 220px;
     width: 100%;
     display: block;
-    border-radius: 8px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center top;
     }
     
     .folder p {
@@ -9755,7 +9759,8 @@ textarea.form-control {
     }
     
     .folder:hover {
-    transform: scale(1.05);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     }
     
     .folder::before {
@@ -9803,14 +9808,26 @@ textarea.form-control {
       left: 0; 
       width: 100%; 
       height: 100%; 
-      background: rgba(0,0,0,0.8); 
+      background: rgba(0,0,0,0.85); 
       align-items: center; 
       justify-content: center; 
-      z-index: 4; 
+      z-index: 1002; 
     }
     .gallery-overlay img { 
-      max-width: 80%; 
-      max-height: 80%; 
+      max-width: 85%; 
+      max-height: 85%;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .gallery-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 36px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 1003;
+      line-height: 1;
     }
     .nav-button { 
       position: absolute; 
@@ -9835,17 +9852,42 @@ textarea.form-control {
    .popup-fee {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-    border-radius: 5px;
-    text-align: center;
-    width: 90%; /* Adjusted for responsiveness */
-    max-width: 500px; /* Maximum width */
-    z-index: 1001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+}
+
+.popup-fee .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+  color: #333;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0.7;
+}
+.popup-fee .close:hover {
+  opacity: 1;
+  color: #000;
+}
+
+.popup-fee .popup-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .popup-content {
@@ -9951,12 +9993,9 @@ cite {
     margin-top: 0px;
     margin-left: 145px;
   }
-    .popup-fee {
-        width: 95%; /* Make it almost full screen */
-        max-width: 350px; /* Adjust for small devices */
-        padding: 15px;
-    }
-    .popup-content {
+    .popup-fee .popup-content {
+        width: 95%;
+        max-width: 350px;
         padding: 15px;
     }
 
@@ -10146,9 +10185,267 @@ cite {
 }
 
 
-@media (max-width: 768px) {
-  .bg-primary{
-    display: none;
+/* Top contact info bar — desktop only */
+@media (max-width: 991.98px) {
+  div.py-2.bg-primary {
+    display: none !important;
+  }
+}
+
+/* Modern card styles — staff, courses, gallery */
+.staff {
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+.staff .img-wrap {
+  height: 340px;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+.staff .img {
+  height: 100%;
+  min-height: 340px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.staff .text {
+  border-radius: 0 0 16px 16px;
+  padding-bottom: 1.25rem;
+}
+
+.course {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: column !important;
+}
+.course:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+}
+.course .img {
+  width: 100% !important;
+  min-height: 220px;
+  height: 240px;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.course .text {
+  width: 100% !important;
+  padding: 1.25rem 1.5rem !important;
+}
+
+.folder {
+  height: auto !important;
+  max-height: none !important;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.folder img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px;
+}
+.folder:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.image-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+}
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Mobile responsive enhancements */
+@media (max-width: 767.98px) {
+  .owl-carousel.home-slider,
+  .owl-carousel.home-slider .slider-item,
+  .owl-carousel.home-slider .slider-item .slider-text {
+    height: 420px !important;
+  }
+  .owl-carousel.home-slider .slider-item .slider-text h1 {
+    font-size: 28px !important;
+    padding: 8px 12px;
+  }
+  .ftco-intro .col-md-3 {
+    margin-top: 1rem;
+    text-align: center !important;
+  }
+  .ftco-intro .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  .testimony-wrap {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .testimony-wrap .user-img {
+    margin: 0 auto 1rem !important;
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .testimony-wrap .text {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+  .ftco-consult .col-md-6 {
+    margin: 0 15px;
+    border-radius: 12px;
+  }
+  .appointment-form .d-md-flex {
+    flex-direction: column !important;
+  }
+  .appointment-form .form-group.ml-md-4 {
+    margin-left: 0 !important;
+  }
+  .staff .img-wrap,
+  .staff .img {
+    height: 300px;
+    min-height: 300px;
+  }
+  .course .img {
+    height: 200px;
+    min-height: 200px;
+  }
+  .logo {
+    max-width: 180px;
+    height: 55px;
+  }
+  .hero-wrap.hero-wrap-2 {
+    height: 220px;
+  }
+  .hero-wrap.hero-wrap-2 .slider-text {
+    height: 220px;
+  }
+  .admission-list li {
+    width: 100%;
+  }
+}
+
+/* Mobile navbar fixes */
+@media (max-width: 991.98px) {
+  #ftco-navbar.ftco-navbar-light {
+    padding: 8px 12px;
+  }
+
+  #ftco-navbar .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  #ftco-navbar .navbar-brand {
+    flex: 0 1 auto;
+    max-width: calc(100% - 80px);
+    margin-right: auto;
+  }
+
+  #ftco-navbar .navbar-brand .logo {
+    max-width: 170px;
+    height: 52px;
+  }
+
+  #ftco-navbar .navbar-toggler {
+    flex: 0 0 auto;
+    margin-left: 12px;
+    padding: 6px 8px;
+    font-size: 13px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  #ftco-navbar .navbar-collapse {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-top: 0.5rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  #ftco-navbar .navbar-collapse:not(.show) {
+    display: none !important;
+  }
+
+  #ftco-navbar .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0.25rem 0 0.75rem;
+  }
+
+  #ftco-navbar .navbar-nav > .nav-item {
+    width: 100%;
+  }
+
+  #ftco-navbar .navbar-nav > .nav-item > .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 0.5rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 15px;
+  }
+
+  #ftco-navbar .navbar-nav > .nav-item > .nav-link.pl-0 {
+    padding-left: 0.5rem !important;
+  }
+
+  #ftco-navbar .dropdown-menu {
+    position: static !important;
+    float: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0.5rem 1rem;
+    border: none;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.06) !important;
+  }
+
+  #ftco-navbar .dropdown-menu .dropdown-item {
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 0.55rem 0.75rem;
+    font-size: 14px;
+  }
+
+  #ftco-navbar .dropdown-menu .dropdown-item:hover,
+  #ftco-navbar .dropdown-menu .dropdown-item:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .ftco-services .col-md-3 {
+    margin-bottom: 0;
+  }
+  .wrap-about.bg-light {
+    margin-bottom: 1.5rem;
   }
 }
 

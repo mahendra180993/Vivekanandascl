@@ -8,7 +8,7 @@
 
 		<!-- <link rel="icon" type="image/x-icon" href="/images/favicon.png"> -->
 		<!-- <link rel="icon" type="image/x-icon" href="/images/vivek_1.png"> -->
-		<link rel="icon" type="image/x-icon" href="/images/vivek_1.png">
+		<link rel="icon" type="image/x-icon" href="images/vivek_1.png">
     
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
@@ -28,9 +28,101 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 
-		<link rel="stylesheet" href="css/modelpopup.css">
 		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 		<script src="js/mails.js"></script>
+
+
+		<link rel="stylesheet" href="css/modelpopup.css">
+
+	<style>
+		.academic-calendar-container {
+			position: absolute;
+			top: 40%;
+			right: 0.5%;
+			width: 260px;
+			background: rgba(255, 255, 255, 0.95);
+			padding: 15px;
+			border-radius: 12px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+			z-index: 98;
+			overflow: hidden;
+			transition: top 0.3s ease;
+		}
+
+			/* On scroll, stick it to 20% (desktop only) */
+			@media (min-width: 768px) {
+			.sticky-calendar {
+				top: 10% !important;
+			}
+			}
+
+				/* Mobile View — No sticky */
+				@media (max-width: 767px) {
+				.academic-calendar-container {
+					position: relative;
+					top: auto;
+					right: auto;
+					width: 100%;
+					margin: 10px auto;
+					z-index: 0;
+				}
+				}
+
+
+		.calendar-title {
+			font-size: 14px;
+			font-weight: bold;
+			color: #000;
+			margin-bottom: 15px;
+			text-align: center;
+		}
+
+		.calendar-list-wrapper {
+			height: 150px;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.calendar-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.calendar-list li {
+			padding: 8px 0px;
+			font-size: 14px;
+			color: #000;
+		}
+
+		.calendar-list li a {
+			color: #161515;
+			text-decoration: none;
+		}
+
+		.calendar-list li a:hover {
+		text-decoration: underline;
+		color: blue;
+		}
+
+		@keyframes scroll-up {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    .scrolling-list {
+      animation: scroll-up 10s linear infinite;
+    }
+
+    /* Optional: pause on hover */
+    .scrolling-list:hover {
+      animation-play-state: paused;
+    }
+	</style>
 
 </head>
   <body>
@@ -75,10 +167,10 @@
 					    </div>
 					    <div class="col-md pr-4 d-flex topper align-items-center">
 					    	<div class="icon bg-tertiary mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-						    <span class="text">+91 780103 11 56 , +91 912168 99 73</span>
+						    <span class="text">+91 78938 09 156 , +91 912168 99 73</span>
 					    </div>
 							<div class="col-md pr-4 d-flex topper align-items-center">
-								<button class="quick-access-btn" onclick="openPopup()">Quick Fee</button>
+								<button type="button" class="quick-access-btn" onclick="openFeePopup(event)">Quick Fee</button>
 					    </div>
 
 							<!-- Quick fee popup start -->
@@ -122,19 +214,18 @@
 		  </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
-	    <div class="container d-flex align-items-center">
+	    <div class="container">
 	    	<a class="navbar-brand" href="index.html">
-					<img src="/images/vivek_2.png" alt="Vivekananda Global High School" class="logo" />
+					<img src="images/vivek_2.png" alt="Vivekananda Global High School" class="logo" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	        	<ul class="navbar-nav">
 							<li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
 							<li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
+                <a href="index.html#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
                 <div class="dropdown-menu" aria-labelledby="admissionDropdown">
                     <a class="dropdown-item" href="about.html">About Me</a>
                     <a class="dropdown-item" href="legalPublicAnnouncement.html">Legal Public Announcement</a>
@@ -142,7 +233,7 @@
               </li>
 					
 							<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
+									<a href="index.html#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 									<div class="dropdown-menu" aria-labelledby="academicsDropdown">
 											<a class="dropdown-item" href="infrastructure.html">Infrastructure</a>
 											<a class="dropdown-item" href="curriculum.html">Curriculum</a>
@@ -151,10 +242,10 @@
 							</li>
 					
 							<li class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admission</a>
+									<a href="index.html#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admission</a>
 									<div class="dropdown-menu" aria-labelledby="admissionDropdown">
 											<a class="dropdown-item" href="admission-process.html">Admission Process</a>
-											<a class="dropdown-item" href="online-enquiry.html">Online Enquiry Form</a>
+											<!-- <a class="dropdown-item" href="online-enquiry.html">Online Enquiry Form</a> -->
 									</div>
 							</li>
 					
@@ -167,30 +258,39 @@
     <!-- END nav -->
     
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(/images/bg_1.jpg);">
+      <div class="slider-item" style="background-image:url(images/bg_1.JPG);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 text-center ftco-animate">
             <h1 class="mb-4">Kids Are The Best <span>Explorers In The World</span></h1>
-            <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
+            <p><a href="about.html" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
           </div>
         </div>
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(/images/bg_2.jpg);">
+      <div class="slider-item" style="background-image:url(images/bg_2.jpeg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 text-center ftco-animate">
             <h1 class="mb-4">Perfect Learned<span> For Your Child</span></h1>
-            <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
+            <p><a href="about.html" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
           </div>
         </div>
         </div>
       </div>
     </section>
+	<div class="academic-calendar-container">
+		<h4 class="calendar-title">📅 Academic Calendar - <span id="monthName"></span></h4>
+		 <!-- Scrollable Content -->
+		 <div class="calendar-list-wrapper">
+			<ul id="eventList" class="scrolling-list calendar-list">
+			  <!-- JS injects items here -->
+			</ul>
+		  </div>
+	  </div>
 
     <section class="ftco-services ftco-no-pb">
 			<div class="container-wrap">
@@ -202,7 +302,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Certified Teachers</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>Highly qualified, CBSE-certified teachers ensuring quality education and student success.</p>
               </div>
             </div>      
           </div>
@@ -213,7 +313,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Special Education</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>Dedicated support for diverse learning needs with specialized CBSE-inclusive education.</p>
               </div>
             </div>    
           </div>
@@ -224,7 +324,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Book &amp; Library</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>Well-stocked library with diverse books to enhance learning and knowledge.</p>
               </div>
             </div>      
           </div>
@@ -235,7 +335,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Certification</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>Recognized CBSE certifications ensuring academic excellence and future opportunities.</p>
               </div>
             </div>      
           </div>
@@ -248,23 +348,21 @@
 				<div class="row">
 					<div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
 						<div class="text px-4 ftco-animate">
-	          	<h2 class="mb-4">Welcome to Vivekananda Global High School
-</h2>
-							<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word.</p>
-							<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. And if she hasn’t been rewritten, then they are still using her.</p>
-							<p><a href="#" class="btn btn-secondary px-4 py-3">Read More</a></p>
+	          				<h2 class="mb-4">Welcome to Vivekananda Global High School</h2>
+							<p>At Vivekananda Global High School, we are committed to providing a holistic and high-quality education based on the CBSE curriculum. Our experienced and certified teachers create an engaging learning environment that fosters intellectual growth, creativity, and critical thinking. With a student-centric approach, we focus on academic excellence, character building, and skill development to prepare students for a successful future.</p>
+							<p>Our state-of-the-art infrastructure includes well-equipped classrooms, a vast library, modern laboratories, and extensive sports facilities, ensuring a well-rounded education. We emphasize extracurricular activities, innovation, and discipline to nurture confident and responsible global citizens. Join us in our mission to inspire young minds and shape a brighter tomorrow!</p>
 						</div>
 					</div>
 					<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
           	<h2 class="mb-4">What We Offer</h2>
-						<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word.</p>
+						<p>We offer quality CBSE education, certified teachers, modern classrooms, well-equipped labs, extracurricular activities, and holistic development.</p>
 						<div class="row mt-5">
 							<div class="col-lg-6">
 								<div class="services-2 d-flex">
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-security"></span></div>
 									<div class="text">
 										<h3>Safety First</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<p>Ensuring a safe, secure, and nurturing environment for all CBSE students and staff.</p>
 									</div>
 								</div>
 							</div>
@@ -273,7 +371,7 @@
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-reading"></span></div>
 									<div class="text">
 										<h3>Regular Classes</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<p>Structured CBSE curriculum with regular classes for disciplined learning and academic excellence.</p>
 									</div>
 								</div>
 							</div>
@@ -282,7 +380,7 @@
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-diploma"></span></div>
 									<div class="text">
 										<h3>Certified Teachers</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<p>Highly qualified, CBSE-certified teachers ensuring quality education and student success.</p>
 									</div>
 								</div>
 							</div>
@@ -291,7 +389,7 @@
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-education"></span></div>
 									<div class="text">
 										<h3>Sufficient Classrooms</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<p>Spacious, well-equipped classrooms ensuring a comfortable and effective learning environment for CBSE students.</p>
 									</div>
 								</div>
 							</div>
@@ -300,7 +398,7 @@
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-jigsaw"></span></div>
 									<div class="text">
 										<h3>Creative Lessons</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<p>Engaging and innovative lessons fostering creativity, critical thinking, and holistic development in CBSE students.</p>
 									</div>
 								</div>
 							</div>
@@ -309,7 +407,7 @@
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-kids"></span></div>
 									<div class="text">
 										<h3>Sports Facilities</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<p>Well-equipped sports facilities promoting physical fitness, teamwork, and overall development for CBSE students.</p>
 									</div>
 								</div>
 							</div>
@@ -319,19 +417,26 @@
 			</div>
 		</section>
 		
-		<section class="ftco-intro" style="background-image: url(/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+		<section class="ftco-intro" style="background-image: url(images/bg_3.jpeg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-9">
-						<h2>Teaching Your Child Some Good Manners</h2>
-						<p class="mb-0">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-					</div>
-					<div class="col-md-3 d-flex align-items-center">
-						<p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-3">Take Admissions</a></p>
+			<div style="background-color: rgba(0, 0, 0, 0.5); padding: 2rem; margin: 10px; border: 1px solid #fff; border-radius: 10px;">
+				<div class="container text-white">
+					<div class="row">
+						<div class="col-md-9">
+							<h2>Teaching Your Child Some Good Manners</h2>
+							<p class="mb-0">
+								We instill respect, kindness, and discipline through interactive lessons, fostering well-mannered, responsible, and empathetic individuals.
+							</p>
+						</div>
+						<div class="col-md-3 d-flex align-items-center">
+							<p class="mb-0">
+								<a href="admission-process.html" class="btn btn-secondary px-4 py-3">Take Admissions</a>
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>7801031156 , 9121689973
+			</div>
+			
 		</section>
 
 		
@@ -340,26 +445,26 @@
 				<div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-8 text-center heading-section ftco-animate">
             <h2 class="mb-4"><span>Our</span> Management</h2>
-            <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+            <p>Our dedicated management ensures quality education, modern facilities, and a nurturing environment for students' academic and holistic growth.</p>
           </div>
         </div>	
 				<div class="row">
 					<div class="col-md-6 col-lg-4 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(/images/teacher-1.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/sir.jpeg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
-								<h3>Bianca Wilson</h3>
-								<span class="position mb-2">Teacher</span>
+								<h3>Mahipal Reddy</h3>
+								<span class="position mb-2">Chairman</span>
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
+									<p>Visionary leader dedicated to excellence, values, innovation, and holistic student development in education.</p>
+									<!-- <ul class="ftco-social text-center">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		              </ul>
+		              </ul> -->
 	              </div>
 							</div>
 						</div>
@@ -367,19 +472,19 @@
 					<div class="col-md-6 col-lg-4 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(/images/teacher-2.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/nandini_madam.jpeg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
-								<h3>Mitch Parker</h3>
-								<span class="position mb-2">English Teacher</span>
+								<h3>Nandini Shathpathi</h3>
+								<span class="position mb-2">Principal</span>
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
+									<p>Dynamic principal fostering academic excellence, discipline, innovation, and holistic growth for every student.</p>
+									<!-- <ul class="ftco-social text-center">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		              </ul>
+		              </ul> -->
 	              </div>
 							</div>
 						</div>
@@ -387,19 +492,19 @@
 					<div class="col-md-6 col-lg-4 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(/images/teacher-3.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/joythi.jpeg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
-								<h3>Stella Smith</h3>
-								<span class="position mb-2">Art Teacher</span>
+								<h3>Jyothi Nakinavare</h3>
+								<span class="position mb-2">Vice Principal</span>
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
+									<p>Supportive vice principal promoting discipline, learning, student welfare, and smooth academic administration daily.</p>
+									<!-- <ul class="ftco-social text-center">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		              </ul>
+		              </ul> -->
 	              </div>
 							</div>
 						</div>
@@ -418,46 +523,78 @@
         </div>	
 				<div class="row">
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url(/images/course-1.jpg);"></div>
+						<div class="img" style="background-image: url(images/CLASS-1.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="#">Nursery to PP-II</a></h3>
+							<h3><a href="curriculum.html">Nursery to PP-II</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+							<p>Teachers play a pivotal role in children's activity construction knowledge. The
+								early childhood teachers is responsible for offering children well stocked play
+								spaces where they can construct concept and ideas, designing daily routine
+								that invite children to be active participants equally important are the ways in
+								which teacher use interaction and conversation with children to support
+								learning.</p>
 						</div>
 					</div>
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url(/images/course-2.jpg);"></div>
+						<div class="img" style="background-image: url(images/class-2.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="#">GRADE-I to GRADE-V</a></h3>
+							<h3><a href="curriculum.html">GRADE-I AND GRADE-III</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+							<p>For effective teaching and learning for grade 1and 2 teachers focus on making
+								learning fun and engaging though play based activities interactive story telling
+								and hands on experiences while also incorporating basic literacy and
+								numeracy skills. Creates a positive learning environment , encourages for
+								more participation in classroom activities.Integration of 5cs in classroom
+								Communication , critical thinking, creativity , collaboration, cultural competences .</p>
 						</div>
 					</div>
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url(/images/course-3.jpg);"></div>
+						<div class="img" style="background-image: url(images/class-3.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="#">GRADE-VI to GRADE-IX</a></h3>
+							<h3><a href="curriculum.html">GRADE-III to GRADE-V</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+							<p>The most breakdown of key element for these grades.
+								Involves a blend of direct instruction experiential learning and collaborative
+								activities fostering critical thinking and promoting independence learning.
+								Students are transitioning from concrete to abstract thinking so lessons should
+								incorporate hands on activities and real world application.
+								Here at this stage we encourage independent learning.</p>
 						</div>
 					</div>
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url(/images/course-4.jpg);"></div>
+						<div class="img" style="background-image: url(images/class-4.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="#">GRADE-X</a></h3>
+							<h3><a href="curriculum.html">GRADE-VI AND GRADE-VII</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+							<p>Effective teaching and learning process involves engaging students in activities
+								learning utilizing differentiated instructions and incorporating strategies like
+								inquiry based learning and peer teaching to foster a deeper understanding of
+								concepts Integration of 6E Engage, explore, explain. Elaborate, evaluate ,
+								extend.</p>
+						</div>
+					</div>
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url(images/class-5.png);"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="curriculum.html">GRADE-VIII to GRADE-X</a></h3>
+							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+							<p>Focus on engaging students with diverse learning styles utilizing a variety of
+								teaching methods and fostering critical thinking and problem solving utilize
+								educational technology effectively. to enhance learning and provide access to
+								diverse resources overall cumination of 21st century skills and are set of
+								abilities crucial for success in modern informative driven world .
+								Encompassing creativity, collaboration communication and digital literacy.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(/images/bg_4.jpg);" data-stellar-background-ratio="0.5">
+		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_4.jpg);" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-8 text-center heading-section heading-section-black ftco-animate">
-            <h2 class="mb-4"><span>20 Years of</span> Experience</h2>
+            <h2 class="mb-4"><span>27+ Years of</span> Experience</h2>
             <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
           </div>
         </div>	
@@ -519,7 +656,7 @@
             <div class="carousel-testimony owl-carousel">
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(/images/teacher-1.jpg)">
+                  <div class="user-img mr-4" style="background-image: url(images/teacher-1.jpg)">
                   </div>
                   <div class="text ml-2 bg-light">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -533,7 +670,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(/images/teacher-2.jpg)">
+                  <div class="user-img mr-4" style="background-image: url(images/teacher-2.jpg)">
                   </div>
                   <div class="text ml-2 bg-light">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -547,7 +684,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(/images/teacher-3.jpg)">
+                  <div class="user-img mr-4" style="background-image: url(images/teacher-3.jpg)">
                   </div>
                   <div class="text ml-2 bg-light">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -561,7 +698,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(/images/teacher-4.jpg)">
+                  <div class="user-img mr-4" style="background-image: url(images/teacher-4.jpg)">
                   </div>
                   <div class="text ml-2 bg-light">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -575,7 +712,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(/images/teacher-1.jpg)">
+                  <div class="user-img mr-4" style="background-image: url(images/teacher-1.jpg)">
                   </div>
                   <div class="text ml-2 bg-light">
                   	<span class="quote d-flex align-items-center justify-content-center">
@@ -593,7 +730,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url(/images/bg_5.jpg);" data-stellar-background-ratio="0.5">
+    <section id="contact" class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url(images/bg_5.jpg);" data-stellar-background-ratio="0.5">
 			<div class="container">
 				<div class="row justify-content-end">
 					<div class="col-md-6 py-5 px-md-5 bg-primary">
@@ -648,7 +785,7 @@
 		</section>
 
 
-		<section class="ftco-gallery">
+		<!-- <section class="ftco-gallery">
     	<div class="container-wrap">
     		<div class="row no-gutters">
 					<div class="col-md-3 ftco-animate">
@@ -681,7 +818,7 @@
 					</div>
         </div>
     	</div>
-    </section>
+    </section> -->
 
 		
     <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -695,7 +832,7 @@
                 innovative teaching, and a vibrant environment. Our mission is to inspire and empower students 
                 to turn their dreams into reality."
               </blockquote>
-              <cite>— Mahendra Reddy</cite>
+              <cite>— Mahipal Reddy</cite>
             </div>
           </div>
           
@@ -703,7 +840,7 @@
             <div class="ftco-footer-widget mb-5 ml-md-4">
               <h2 class="ftco-heading-2">Links</h2>
               <ul class="list-unstyled">
-                <li><a href="/"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+                <li><a href="index.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
                 <li><a href="about.html"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
                 <li><a href="infrastructure.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Infrastructure</a></li>
                 <li><a href="gallery.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Gallery</a></li>
@@ -717,14 +854,14 @@
               <div class="block-23">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Gummadidala, Sangareddy dist. Telangana 502313</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 780103 11 56 , +91 912168 99 73</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">vivekanandacbse@gmail.com</span></a></li>
+	                <li><a href="tel:+917893809156"><span class="icon icon-phone"></span><span class="text">+91 78938 09 156 , +91 912168 99 73</span></a></li>
+	                <li><a href="mailto:vivekanandacbse@gmail.com"><span class="icon icon-envelope"></span><span class="text">vivekanandacbse@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate"><a href="index.html#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="index.html#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="index.html#"><span class="icon-instagram"></span></a></li>
               </ul>
             </div>
           </div>
@@ -744,6 +881,7 @@
 
 
   <script src="js/jquery.min.js"></script>
+
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -759,6 +897,100 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
 	<script src="js/modelpopup.js"></script>
+	<script>
+		function updateStickyPosition() {
+			const calendar = document.querySelector(".academic-calendar-container");
+
+			if (window.innerWidth >= 768) {
+			if (window.scrollY > 50) {
+				calendar.classList.add("sticky-calendar");
+			} else {
+				calendar.classList.remove("sticky-calendar");
+			}
+			} else {
+			calendar.classList.remove("sticky-calendar");
+			}
+		}
+
+		window.addEventListener("scroll", updateStickyPosition);
+		window.addEventListener("resize", updateStickyPosition);
+		window.addEventListener("load", updateStickyPosition);
+		const academicData = [
+			{ date: '2025-07-01', title: 'National Doctor Day' },
+			{ date: '2025-07-05', title: 'Van Mahotsav' },
+			{ date: '2025-07-12', title: 'Paper bag day' },
+			{ date: '2025-07-19', title: 'Leaf painting activity' },
+			{ date: '2025-07-28', title: 'Go Green' },
+			{ date: '2025-08-08', title: 'Quite of India Movement , Quiz for higher grades' },
+			{ date: '2025-08-09', title: 'Raksha Bandhan' },
+			{ date: '2025-08-15', title: 'Independence Day - Holiday' },
+			{ date: '2025-08-16', title: 'Monologue' },
+			{ date: '2025-08-23', title: 'Food fest of India' },
+			{ date: '2025-08-26', title: 'Ganesh Chaturthi - Holiday' },
+			{ date: '2025-08-30', title: 'State Attires.' },
+			{ date: '2025-09-05', title: 'Teachers Day Celebration' },
+			{ date: '2025-09-08', title: 'International literacy Day (Debate)' },
+			{ date: '2025-09-14', title: 'Hindi Diwas Nukkad Nataak' },
+			{ date: '2025-09-15', title: 'Engineers day (special assembly)' },
+			{ date: '2025-09-20', title: 'Creativity arts' },
+			{ date: '2025-09-22', title: 'Navratri celebrations' },
+			{ date: '2025-10-02', title: 'Gandhi Jayanti' },
+			{ date: '2025-10-11', title: 'Double your happiness by sharing' },
+			{ date: '2025-10-18', title: 'Diwali celebrations' },
+			{ date: '2025-10-25', title: 'Disney characters' },
+			{ date: '2025-11-08', title: 'Grammar story' },
+			{ date: '2025-11-14', title: "Children's Day celebrations" },
+			{ date: '2025-11-16', title: 'pen down story with pictures' },
+			{ date: '2025-11-22', title: 'Review of book' },
+			{ date: '2025-11-29', title: 'Healthy life display and talk show' },
+			{ date: '2025-12-04', title: 'World Life construction day (seminar)' },
+			{ date: '2025-12-13', title: 'Cotton dump and bubble print' },
+			{ date: '2025-12-23', title: 'Christmas celebrations' },
+			{ date: '2025-12-27', title: 'Salad making' },
+			{ date: '2026-01-03', title: 'Savitribai Phule Jayanti Epitome' },
+			{ date: '2026-01-12', title: 'Pongal Rangoli and kite flying competitions' },
+			{ date: '2026-01-24', title: 'National Girl child day' },
+			{ date: '2026-01-26', title: 'Republic Day' },
+			{ date: '2026-02-08', title: 'Sand drawing' },
+			{ date: '2026-02-15', title: 'Parents day' },
+			{ date: '2026-02-28', title: 'National science Day (display for working model)' },
+			{ date: '2026-03-01', title: 'Final examinations)' }
+			
+			];
+
+			const monthNames = [
+			"January", "February", "March", "April", "May", "June",
+			"July", "August", "September", "October", "November", "December"
+			];
+
+			const currentMonth = new Date().getMonth();
+			document.getElementById("monthName").innerText = monthNames[currentMonth];
+
+			const filteredEvents = academicData.filter(event => {
+			const eventMonth = new Date(event.date).getMonth();
+			return eventMonth === currentMonth;
+			});
+
+			const eventList = document.getElementById("eventList");
+
+				if (filteredEvents.length > 0) {
+					filteredEvents.forEach(event => {
+						const li = document.createElement("li");
+						li.className = "flex items-center text-sm text-gray-700";
+
+						li.innerHTML = `
+							<span class="mr-2 text-indigo-500">»</span>
+							<a href="${event.link || 'academic-calendar.html'}" class="hover:underline text-blue-600">
+								${event.title}
+							</a>
+						`;
+
+						eventList.appendChild(li);
+					});
+				} else {
+					eventList.innerHTML = `<li class="text-center text-gray-400">No events this month</li>`;
+				}
+	</script>
     
   </body>
 </html>

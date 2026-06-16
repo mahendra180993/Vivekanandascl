@@ -7,26 +7,45 @@ let currentDate = new Date();
 
 // 🎉 Indian Festivals with Images
 const festivals = {
-    "2025-03-17": [{ name: "Chhatrapati Shivaji Maharaj Jayanti", image: "img/chhatrapati_shivaji.jpg" }],
-    "2025-03-14": [{ name: "Holi", image: "img/holi.webp" }],
-    "2025-03-30": [{ name: "Ugadi", image: "img/Ugadi_Pacchadi.jpg" }],
-
-    "2025-04-06": [{ name: "Rama Navami", image: "img/ram-navmi.jpg" }],
-    "2025-04-14": [{ name: "Dr. B. R. Ambedkar Jayanti", image: "img/mbedkar.jpeg" }],
-    "2025-04-18": [{ name: "Good Friday", image: "img/goodfriday.jpg" }],
-
-    "2025-08-09": [{ name: "Raksha Bandhan (Rakhi)", image: "img/raksha.webp" }],
-    "2025-08-15": [{ name: "Independence Day", image: "img/aug15.webp" }],
-
-    "2025-10-02": [
-        { name: "Gandhi Jayanti", image: "img/gandi.jpg" },
-        { name: "Dussehra", image: "img/devi.jpeg" }
-    ],
-
-    "2025-11-01": [{ name: "Diwali", image: "img/diwali.png" }],
-    "2025-11-03": [{ name: "Bhai Dooj", image: "img/bhai_dooj.png" }],
-
-    "2025-12-25": [{ name: "Christmas", image: "img/christmas.webp" }]
+    "2025-07-01": [{ name: "National Doctor Day" }],
+    "2025-07-05": [{ name: "Van Mahotsav" }],
+    "2025-07-12": [{ name: "Paper bag day" }],
+    "2025-07-19": [{ name: "Leaf painting activity" }],
+    "2025-07-28": [{ name: "Go Green" }],
+    "2025-08-08": [{ name: "Quite of India Movement, Quiz for higher grades" }],
+    "2025-08-09": [{ name: "Raksha Bandhan" }],
+    "2025-08-15": [{ name: "Independence Day - Holiday" }],
+    "2025-08-16": [{ name: "Monologue" }],
+    "2025-08-23": [{ name: "Food fest of India" }],
+    "2025-08-26": [{ name: "Ganesh Chaturthi - Holiday" }],
+    "2025-08-30": [{ name: "State Attires" }],
+    "2025-09-05": [{ name: "Teachers Day Celebration" }],
+    "2025-09-08": [{ name: "International Literacy Day (Debate)" }],
+    "2025-09-14": [{ name: "Hindi Diwas Nukkad Nataak" }],
+    "2025-09-15": [{ name: "Engineers Day (Special Assembly)" }],
+    "2025-09-20": [{ name: "Creativity Arts" }],
+    "2025-09-22": [{ name: "Navratri Celebrations" }],
+    "2025-10-02": [{ name: "Gandhi Jayanti" }],
+    "2025-10-11": [{ name: "Double your happiness by sharing" }],
+    "2025-10-18": [{ name: "Diwali Celebrations" }],
+    "2025-10-25": [{ name: "Disney Characters" }],
+    "2025-11-08": [{ name: "Grammar Story" }],
+    "2025-11-14": [{ name: "Children's Day Celebrations" }],
+    "2025-11-16": [{ name: "Pen Down Story with Pictures" }],
+    "2025-11-22": [{ name: "Review of Book" }],
+    "2025-11-29": [{ name: "Healthy Life Display and Talk Show" }],
+    "2025-12-04": [{ name: "World Life Construction Day (Seminar)" }],
+    "2025-12-13": [{ name: "Cotton Dump and Bubble Print" }],
+    "2025-12-23": [{ name: "Christmas Celebrations" }],
+    "2025-12-27": [{ name: "Salad Making" }],
+    "2026-01-03": [{ name: "Savitribai Phule Jayanti Epitome" }],
+    "2026-01-12": [{ name: "Pongal Rangoli and Kite Flying Competitions" }],
+    "2026-01-24": [{ name: "National Girl Child Day" }],
+    "2026-01-26": [{ name: "Republic Day" }],
+    "2026-02-08": [{ name: "Sand Drawing" }],
+    "2026-02-15": [{ name: "Parents Day" }],
+    "2026-02-28": [{ name: "National Science Day (Display for Working Model)" }],
+    "2026-03-01": [{ name: "Final Examinations" }]
 };
 
 function renderCalendar() {
@@ -53,7 +72,6 @@ function renderCalendar() {
       if (festivalList.length > 0) {
           festivalList.forEach(festival => {
               festivalHTML += `
-                  <img src="${festival.image}" alt="${festival.name}" class="festival-img">
                   <span class="festival-name">${festival.name}</span>
               `;
           });
