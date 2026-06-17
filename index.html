@@ -83,6 +83,30 @@
 			position: relative;
 		}
 
+		.calendar-scroll-track {
+			display: flex;
+			flex-direction: column;
+			will-change: transform;
+			animation: calendar-scroll var(--scroll-duration, 45s) linear infinite;
+		}
+
+		.calendar-scroll-track:hover {
+			animation-play-state: paused;
+		}
+
+		.calendar-scroll-track.is-static {
+			animation: none;
+		}
+
+		@keyframes calendar-scroll {
+			from {
+				transform: translateY(0);
+			}
+			to {
+				transform: translateY(-50%);
+			}
+		}
+
 		.calendar-list {
 			list-style: none;
 			margin: 0;
@@ -104,24 +128,6 @@
 		text-decoration: underline;
 		color: blue;
 		}
-
-		@keyframes scroll-up {
-      0% {
-        transform: translateY(100%);
-      }
-      100% {
-        transform: translateY(-100%);
-      }
-    }
-
-    .scrolling-list {
-      animation: scroll-up 10s linear infinite;
-    }
-
-    /* Optional: pause on hover */
-    .scrolling-list:hover {
-      animation-play-state: paused;
-    }
 	</style>
 
 </head>
@@ -215,7 +221,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	    	<a class="navbar-brand" href="index.html">
+	    	<a class="navbar-brand" href="/">
 					<img src="images/vivek_2.png" alt="Vivekananda Global High School" class="logo" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -223,34 +229,34 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-							<li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
+							<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
 							<li class="nav-item dropdown">
-                <a href="index.html#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
+                <a href="/#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
                 <div class="dropdown-menu" aria-labelledby="admissionDropdown">
-                    <a class="dropdown-item" href="about.html">About Me</a>
-                    <a class="dropdown-item" href="legalPublicAnnouncement.html">Legal Public Announcement</a>
+                    <a class="dropdown-item" href="/about">About Me</a>
+                    <a class="dropdown-item" href="/legal-public-announcement">Legal Public Announcement</a>
                 </div>
               </li>
 					
 							<li class="nav-item dropdown">
-									<a href="index.html#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
+									<a href="/#" class="nav-link dropdown-toggle" id="academicsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 									<div class="dropdown-menu" aria-labelledby="academicsDropdown">
-											<a class="dropdown-item" href="infrastructure.html">Infrastructure</a>
-											<a class="dropdown-item" href="curriculum.html">Curriculum</a>
-											<a class="dropdown-item" href="academic-calendar.html">Academic Calendar</a>
+											<a class="dropdown-item" href="/infrastructure">Infrastructure</a>
+											<a class="dropdown-item" href="/curriculum">Curriculum</a>
+											<a class="dropdown-item" href="/academic-calendar">Academic Calendar</a>
 									</div>
 							</li>
 					
 							<li class="nav-item dropdown">
-									<a href="index.html#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admission</a>
+									<a href="/#" class="nav-link dropdown-toggle" id="admissionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admission</a>
 									<div class="dropdown-menu" aria-labelledby="admissionDropdown">
-											<a class="dropdown-item" href="admission-process.html">Admission Process</a>
+											<a class="dropdown-item" href="/admission-process">Admission Process</a>
 											<!-- <a class="dropdown-item" href="online-enquiry.html">Online Enquiry Form</a> -->
 									</div>
 							</li>
 					
-							<li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
-							<li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+							<li class="nav-item"><a href="/gallery" class="nav-link">Gallery</a></li>
+							<li class="nav-item"><a href="/contact" class="nav-link">Contact Us</a></li>
 					</ul>
 	      </div>
 	    </div>
@@ -264,7 +270,7 @@
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 text-center ftco-animate">
             <h1 class="mb-4">Kids Are The Best <span>Explorers In The World</span></h1>
-            <p><a href="about.html" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
+            <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
           </div>
         </div>
         </div>
@@ -276,7 +282,7 @@
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 text-center ftco-animate">
             <h1 class="mb-4">Perfect Learned<span> For Your Child</span></h1>
-            <p><a href="about.html" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
+            <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
           </div>
         </div>
         </div>
@@ -286,9 +292,10 @@
 		<h4 class="calendar-title">📅 Academic Calendar - <span id="monthName"></span></h4>
 		 <!-- Scrollable Content -->
 		 <div class="calendar-list-wrapper">
-			<ul id="eventList" class="scrolling-list calendar-list">
-			  <!-- JS injects items here -->
-			</ul>
+			<div class="calendar-scroll-track" id="calendarScrollTrack">
+				<ul id="eventList" class="calendar-list"></ul>
+				<ul id="eventListClone" class="calendar-list" aria-hidden="true"></ul>
+			</div>
 		  </div>
 	  </div>
 
@@ -430,7 +437,7 @@
 						</div>
 						<div class="col-md-3 d-flex align-items-center">
 							<p class="mb-0">
-								<a href="admission-process.html" class="btn btn-secondary px-4 py-3">Take Admissions</a>
+								<a href="/admission-process" class="btn btn-secondary px-4 py-3">Take Admissions</a>
 							</p>
 						</div>
 					</div>
@@ -525,7 +532,7 @@
 					<div class="col-md-6 course d-lg-flex ftco-animate">
 						<div class="img" style="background-image: url(images/CLASS-1.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="curriculum.html">Nursery to PP-II</a></h3>
+							<h3><a href="/curriculum">Nursery to PP-II</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
 							<p>Teachers play a pivotal role in children's activity construction knowledge. The
 								early childhood teachers is responsible for offering children well stocked play
@@ -538,7 +545,7 @@
 					<div class="col-md-6 course d-lg-flex ftco-animate">
 						<div class="img" style="background-image: url(images/class-2.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="curriculum.html">GRADE-I AND GRADE-III</a></h3>
+							<h3><a href="/curriculum">GRADE-I AND GRADE-III</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
 							<p>For effective teaching and learning for grade 1and 2 teachers focus on making
 								learning fun and engaging though play based activities interactive story telling
@@ -551,7 +558,7 @@
 					<div class="col-md-6 course d-lg-flex ftco-animate">
 						<div class="img" style="background-image: url(images/class-3.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="curriculum.html">GRADE-III to GRADE-V</a></h3>
+							<h3><a href="/curriculum">GRADE-III to GRADE-V</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
 							<p>The most breakdown of key element for these grades.
 								Involves a blend of direct instruction experiential learning and collaborative
@@ -564,7 +571,7 @@
 					<div class="col-md-6 course d-lg-flex ftco-animate">
 						<div class="img" style="background-image: url(images/class-4.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="curriculum.html">GRADE-VI AND GRADE-VII</a></h3>
+							<h3><a href="/curriculum">GRADE-VI AND GRADE-VII</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
 							<p>Effective teaching and learning process involves engaging students in activities
 								learning utilizing differentiated instructions and incorporating strategies like
@@ -576,7 +583,7 @@
 					<div class="col-md-6 course d-lg-flex ftco-animate">
 						<div class="img" style="background-image: url(images/class-5.png);"></div>
 						<div class="text bg-light p-4">
-							<h3><a href="curriculum.html">GRADE-VIII to GRADE-X</a></h3>
+							<h3><a href="/curriculum">GRADE-VIII to GRADE-X</a></h3>
 							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
 							<p>Focus on engaging students with diverse learning styles utilizing a variety of
 								teaching methods and fostering critical thinking and problem solving utilize
@@ -840,11 +847,11 @@
             <div class="ftco-footer-widget mb-5 ml-md-4">
               <h2 class="ftco-heading-2">Links</h2>
               <ul class="list-unstyled">
-                <li><a href="index.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                <li><a href="about.html"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-                <li><a href="infrastructure.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Infrastructure</a></li>
-                <li><a href="gallery.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Gallery</a></li>
-                <li><a href="contact.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                <li><a href="/"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+                <li><a href="/about"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
+                <li><a href="/infrastructure"><span class="ion-ios-arrow-round-forward mr-2"></span>Infrastructure</a></li>
+                <li><a href="/gallery"><span class="ion-ios-arrow-round-forward mr-2"></span>Gallery</a></li>
+                <li><a href="/contact"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
               </ul>
             </div>
           </div>
@@ -859,9 +866,9 @@
 	              </ul>
 	            </div>
             	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                <li class="ftco-animate"><a href="index.html#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="index.html#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="index.html#"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate"><a href="/#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="/#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="/#"><span class="icon-instagram"></span></a></li>
               </ul>
             </div>
           </div>
@@ -916,47 +923,111 @@
 		window.addEventListener("resize", updateStickyPosition);
 		window.addEventListener("load", updateStickyPosition);
 		const academicData = [
-			{ date: '2025-07-01', title: 'National Doctor Day' },
-			{ date: '2025-07-05', title: 'Van Mahotsav' },
-			{ date: '2025-07-12', title: 'Paper bag day' },
-			{ date: '2025-07-19', title: 'Leaf painting activity' },
-			{ date: '2025-07-28', title: 'Go Green' },
-			{ date: '2025-08-08', title: 'Quite of India Movement , Quiz for higher grades' },
-			{ date: '2025-08-09', title: 'Raksha Bandhan' },
-			{ date: '2025-08-15', title: 'Independence Day - Holiday' },
-			{ date: '2025-08-16', title: 'Monologue' },
-			{ date: '2025-08-23', title: 'Food fest of India' },
-			{ date: '2025-08-26', title: 'Ganesh Chaturthi - Holiday' },
-			{ date: '2025-08-30', title: 'State Attires.' },
-			{ date: '2025-09-05', title: 'Teachers Day Celebration' },
-			{ date: '2025-09-08', title: 'International literacy Day (Debate)' },
-			{ date: '2025-09-14', title: 'Hindi Diwas Nukkad Nataak' },
-			{ date: '2025-09-15', title: 'Engineers day (special assembly)' },
-			{ date: '2025-09-20', title: 'Creativity arts' },
-			{ date: '2025-09-22', title: 'Navratri celebrations' },
-			{ date: '2025-10-02', title: 'Gandhi Jayanti' },
-			{ date: '2025-10-11', title: 'Double your happiness by sharing' },
-			{ date: '2025-10-18', title: 'Diwali celebrations' },
-			{ date: '2025-10-25', title: 'Disney characters' },
-			{ date: '2025-11-08', title: 'Grammar story' },
-			{ date: '2025-11-14', title: "Children's Day celebrations" },
-			{ date: '2025-11-16', title: 'pen down story with pictures' },
-			{ date: '2025-11-22', title: 'Review of book' },
-			{ date: '2025-11-29', title: 'Healthy life display and talk show' },
-			{ date: '2025-12-04', title: 'World Life construction day (seminar)' },
-			{ date: '2025-12-13', title: 'Cotton dump and bubble print' },
-			{ date: '2025-12-23', title: 'Christmas celebrations' },
-			{ date: '2025-12-27', title: 'Salad making' },
-			{ date: '2026-01-03', title: 'Savitribai Phule Jayanti Epitome' },
-			{ date: '2026-01-12', title: 'Pongal Rangoli and kite flying competitions' },
-			{ date: '2026-01-24', title: 'National Girl child day' },
-			{ date: '2026-01-26', title: 'Republic Day' },
-			{ date: '2026-02-08', title: 'Sand drawing' },
-			{ date: '2026-02-15', title: 'Parents day' },
-			{ date: '2026-02-28', title: 'National science Day (display for working model)' },
-			{ date: '2026-03-01', title: 'Final examinations)' }
-			
-			];
+			{ date: '2026-03-18', title: 'UGADI CELEBRATION' },
+			{ date: '2026-03-19', title: 'HOLIDAY ON ACCOUNT OF UGADI' },
+			{ date: '2026-03-20', title: 'SPECIAL ASSEMBLY RAMZAN' },
+			{ date: '2026-03-21', title: 'HOLIDAY ON ACCOUNT OF RAMZAN' },
+			{ date: '2026-03-26', title: 'SRI RAMA NAVAMI CELEBRATION' },
+			{ date: '2026-03-27', title: 'HOLIDAY SRI RAMA NAVAMI' },
+			{ date: '2026-03-28', title: 'ART INTEGRATION' },
+			{ date: '2026-04-03', title: 'GOOD FRIDAY' },
+			{ date: '2026-04-04', title: 'Graduation day (PP2)' },
+			{ date: '2026-04-11', title: 'Pre-pare maps with cereals (Grade 6 to 9)' },
+			{ date: '2026-04-11', title: 'Spell bee Competition (G1 to G9)' },
+			{ date: '2026-04-14', title: 'Dr.B.R Ambedkar jayanthi' },
+			{ date: '2026-04-18', title: 'Hand writing test (G3 to G9)' },
+			{ date: '2026-04-18', title: 'Sunshine Swimming Day Gala (Pre-Primary to G2)' },
+			{ date: '2026-04-24', title: 'SUMMER VACATION' },
+			{ date: '2026-06-10', title: 'School Reopen after summer vacation' },
+			{ date: '2026-06-13', title: 'Second Saturday' },
+			{ date: '2026-06-20', title: 'Father Day Preparation greeting & Yoga day celebrations' },
+			{ date: '2026-06-26', title: 'Holiday on account of MUHARRAM' },
+			{ date: '2026-06-27', title: '(G1 to IX Plantation) (Green Day Celebration for Nur-G2) GO GREEN' },
+			{ date: '2026-06-27', title: 'Clay modeling (G3-G6)' },
+			{ date: '2026-06-27', title: 'Puppet making (G6-G7)' },
+			{ date: '2026-06-27', title: 'Mask making (G8-G9)' },
+			{ date: '2026-07-04', title: 'Investiture ceremony' },
+			{ date: '2026-07-11', title: 'PTM (CBSE )' },
+			{ date: '2026-07-13', title: 'PERIODIC TEST-II' },
+			{ date: '2026-07-14', title: 'PERIODIC TEST-II' },
+			{ date: '2026-07-15', title: 'PERIODIC TEST-II' },
+			{ date: '2026-07-16', title: 'PERIODIC TEST-II' },
+			{ date: '2026-07-18', title: 'CBP OR ACTIVITY' },
+			{ date: '2026-07-25', title: 'HOLIDAY (Toli Ekadasi) Local' },
+			{ date: '2026-07-31', title: 'Special day celebrations for (nur-g2) theme based on cartoon characters with speech' },
+			{ date: '2026-08-01', title: 'Debate competition' },
+			{ date: '2026-08-03', title: 'P.T-II (G10)' },
+			{ date: '2026-08-04', title: 'P.T-II (G10)' },
+			{ date: '2026-08-05', title: 'P.T-II (G10)' },
+			{ date: '2026-08-08', title: 'PTM' },
+			{ date: '2026-08-10', title: 'BONALU HOLIDAY' },
+			{ date: '2026-08-13', title: 'PAINTING COMPETITIONS BY CULTURAL CLUB' },
+			{ date: '2026-08-14', title: 'FOLK SONG COMPETITION BY CULTURAL CLUB' },
+			{ date: '2026-08-15', title: 'INDEPENDENCE DAY CELEBRATIONS' },
+			{ date: '2026-08-17', title: 'P.T-II (G1-G9)' },
+			{ date: '2026-08-18', title: 'P.T-II (G1-G9)' },
+			{ date: '2026-08-19', title: 'P.T-II (G1-G9)' },
+			{ date: '2026-08-22', title: 'STORY TELLING THEME WISE (G1 - G5)' },
+			{ date: '2026-08-26', title: 'HOLIDAY MILAD-UN-NABI' },
+			{ date: '2026-08-27', title: 'Raksha Bandhan CELEBRATION' },
+			{ date: '2026-08-28', title: 'Raksha Bandhan' },
+			{ date: '2026-08-29', title: 'Story Telling theme wise (G6-G9)' },
+			{ date: '2026-08-29', title: 'Sports Day Celebrations' },
+			{ date: '2026-09-03', title: 'Janmashtami CELEBRATIONS' },
+			{ date: '2026-09-04', title: 'HOLIDAY Janmashtami' },
+			{ date: '2026-09-05', title: 'Teachers Day' },
+			{ date: '2026-09-12', title: 'Hindi Diwas' },
+			{ date: '2026-09-14', title: 'HOLIDAY GANESH CHATURTHI' },
+			{ date: '2026-09-17', title: 'Hyderabad Liberation day' },
+			{ date: '2026-09-19', title: 'IX-BOOK REVIEW VI-VIII - INDIAN CULTURE FESTIVALS ,DANCE food' },
+			{ date: '2026-09-26', title: 'III-V CROPS OF INDIAN LIFE SKILL ACTIVITY (NUR-G2)' },
+			{ date: '2026-10-01', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-02', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-03', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-04', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-05', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-06', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-07', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-08', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-09', title: 'TERM-1 EXAMS S.A-1 EXAMS' },
+			{ date: '2026-10-10', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-11', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-12', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-13', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-14', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-15', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-16', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-17', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-18', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-19', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-20', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-21', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-22', title: 'DUSSEHRA VACATION' },
+			{ date: '2026-10-31', title: 'Nukkad Natak (G6-G8)' },
+			{ date: '2026-10-31', title: 'Role Play (G1-G5)' },
+			{ date: '2026-10-31', title: 'Scrap Book Magicians (G9)' },
+			{ date: '2026-11-07', title: 'SPORTS DAY NUR-G2' },
+			{ date: '2026-11-13', title: 'HOUSE WISE SPORTS Competition' },
+			{ date: '2026-11-14', title: 'PTM AND HOUSE WISE SPORTS Competition FINAL' },
+			{ date: '2026-11-21', title: 'NATIONAL Integration' },
+			{ date: '2026-11-28', title: 'STONE PAINTING CREATIVE ART' },
+			{ date: '2026-12-12', title: 'ART INTEGRATION PROJECTS' },
+			{ date: '2026-12-19', title: 'DISPLAY SUBJECT WISE' },
+			{ date: '2026-12-23', title: 'CHRISTMAS CELEBRATIONS' },
+			{ date: '2026-12-24', title: 'CHRISTMAS HOLIDAY' },
+			{ date: '2026-12-25', title: 'CHRISTMAS HOLIDAY' },
+			{ date: '2027-01-09', title: 'PTM' },
+			{ date: '2027-01-12', title: 'PONGAL CELEBRATIONS' },
+			{ date: '2027-01-13', title: 'PONGAL HOLIDAYS' },
+			{ date: '2027-01-14', title: 'PONGAL HOLIDAYS' },
+			{ date: '2027-01-15', title: 'PONGAL HOLIDAYS' },
+			{ date: '2027-01-16', title: 'PONGAL HOLIDAYS' },
+			{ date: '2027-01-23', title: 'FOOD FEST' },
+			{ date: '2027-02-13', title: 'PTM' },
+			{ date: '2027-02-15', title: 'G8 / IX EXAMS' },
+			{ date: '2027-02-20', title: 'IDEAS OF SCIENCE PROJECT' },
+			{ date: '2027-02-27', title: 'DISPLAY OF SCIENCE PROJECTS' }
+		];
 
 			const monthNames = [
 			"January", "February", "March", "April", "May", "June",
@@ -972,24 +1043,48 @@
 			});
 
 			const eventList = document.getElementById("eventList");
+			const eventListClone = document.getElementById("eventListClone");
+			const scrollTrack = document.getElementById("calendarScrollTrack");
+			const listWrapper = document.querySelector(".calendar-list-wrapper");
+
+			function buildEventItem(event) {
+				const li = document.createElement("li");
+				li.innerHTML = `
+					<span class="mr-2 text-indigo-500">»</span>
+					<a href="${event.link || '/academic-calendar'}" class="hover:underline text-blue-600">
+						${event.title}
+					</a>
+				`;
+				return li;
+			}
+
+			function setupCalendarScroll() {
+				scrollTrack.classList.remove("is-static");
+				eventListClone.innerHTML = "";
+				eventListClone.style.display = "";
 
 				if (filteredEvents.length > 0) {
 					filteredEvents.forEach(event => {
-						const li = document.createElement("li");
-						li.className = "flex items-center text-sm text-gray-700";
-
-						li.innerHTML = `
-							<span class="mr-2 text-indigo-500">»</span>
-							<a href="${event.link || 'academic-calendar.html'}" class="hover:underline text-blue-600">
-								${event.title}
-							</a>
-						`;
-
-						eventList.appendChild(li);
+						eventList.appendChild(buildEventItem(event));
 					});
+
+					if (eventList.scrollHeight > listWrapper.clientHeight) {
+						eventListClone.innerHTML = eventList.innerHTML;
+						const pixelsPerSecond = 16;
+						const duration = Math.max(eventList.scrollHeight / pixelsPerSecond, 28);
+						scrollTrack.style.setProperty("--scroll-duration", `${duration}s`);
+					} else {
+						scrollTrack.classList.add("is-static");
+						eventListClone.style.display = "none";
+					}
 				} else {
 					eventList.innerHTML = `<li class="text-center text-gray-400">No events this month</li>`;
+					scrollTrack.classList.add("is-static");
+					eventListClone.style.display = "none";
 				}
+			}
+
+			setupCalendarScroll();
 	</script>
     
   </body>

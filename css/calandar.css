@@ -91,29 +91,27 @@
 }
 
 /* Festival Days */
-.festival {
-  background: #dfd32d; /* Yellow */
-  color: white;
+.calendar-day.festival {
+  background: #dfd32d;
+  color: #1a1a1a;
   font-weight: bold;
   position: relative;
-  padding-bottom: 30px; /* Space for the image */
+  min-height: 90px;
+  padding-bottom: 8px;
 }
 
-/* Festival Images */
-.festival-img {
-  width: 50px;
-  height: 40px;
-  display: block;
-  margin: 5px auto;
-  border-radius: 5px;
-}
-
-/* Festival Name */
 .festival-name {
   display: block;
-  font-size: 12px;
-  margin-top: 3px;
+  font-size: 11px;
+  line-height: 1.3;
+  margin-top: 4px;
   color: rgb(2, 4, 124);
+  word-break: break-word;
+}
+
+.calendar-header button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 /* Bootstrap Buttons */

@@ -1,0 +1,147 @@
+[build]
+  publish = "."
+
+# Netlify automatically serves 404.html for missing pages.
+# Custom domain setup (Netlify Dashboard > Domain management):
+# 1. Add domain: www.vivekanandacbseschools.com (or your domain)
+# 2. At your domain registrar, set DNS to Netlify:
+#    - Apex (@): A record -> 75.2.60.5
+#    - www: CNAME -> <your-site>.netlify.app
+# 3. Wait for DNS, then enable HTTPS (Netlify provisions SSL automatically)
+
+# Redirect .html URLs to clean paths (browser shows URL without .html)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/academic-calendar.html"
+  to = "/academic-calendar"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/admission-process.html"
+  to = "/admission-process"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/curriculum.html"
+  to = "/curriculum"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/gallery.html"
+  to = "/gallery"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/infrastructure.html"
+  to = "/infrastructure"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legalPublicAnnouncement.html"
+  to = "/legal-public-announcement"
+  status = 301
+  force = true
+
+# Serve pages from .html files at clean URLs
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/academic-calendar"
+  to = "/academic-calendar.html"
+  status = 200
+
+[[redirects]]
+  from = "/admission-process"
+  to = "/admission-process.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/curriculum"
+  to = "/curriculum.html"
+  status = 200
+
+[[redirects]]
+  from = "/gallery"
+  to = "/gallery.html"
+  status = 200
+
+[[redirects]]
+  from = "/infrastructure"
+  to = "/infrastructure.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal-public-announcement"
+  to = "/legalPublicAnnouncement.html"
+  status = 200
+
+# Prefer clean URL rewrites over folder index files
+[[redirects]]
+  from = "/about/"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/academic-calendar/"
+  to = "/academic-calendar"
+  status = 301
+
+[[redirects]]
+  from = "/admission-process/"
+  to = "/admission-process"
+  status = 301
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/curriculum/"
+  to = "/curriculum"
+  status = 301
+
+[[redirects]]
+  from = "/gallery/"
+  to = "/gallery"
+  status = 301
+
+[[redirects]]
+  from = "/infrastructure/"
+  to = "/infrastructure"
+  status = 301
+
+[[redirects]]
+  from = "/legal-public-announcement/"
+  to = "/legal-public-announcement"
+  status = 301
