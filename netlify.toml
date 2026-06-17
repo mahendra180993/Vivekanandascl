@@ -1,5 +1,8 @@
+# Static HTML site — no npm/build step required.
+# Netlify UI: leave Build command empty, Publish directory = "." (or blank; this file wins).
 [build]
   publish = "."
+  command = ""
 
 # Netlify automatically serves 404.html for missing pages.
 # Custom domain setup (Netlify Dashboard > Domain management):
