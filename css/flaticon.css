@@ -7,7 +7,7 @@
 @font-face {
   font-family: "Flaticon";
   src: url("../fonts/flaticon/font/Flaticon.eot");
-  src: url("../fonts/flaticon/font/Flaticon.eot%3F") format("embedded-opentype"),
+  src: url("../fonts/flaticon/font/Flaticon.eot") format("embedded-opentype"),
        url("../fonts/flaticon/font/Flaticon.woff") format("woff"),
        url("../fonts/flaticon/font/Flaticon.ttf") format("truetype"),
        url("../fonts/flaticon/font/Flaticon.svg") format("svg");
